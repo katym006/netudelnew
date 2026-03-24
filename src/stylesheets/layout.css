@@ -29,12 +29,14 @@ body {
   font-family: var(--header-font);
   font-size: 64px;
   line-height: 80%;
+  color: var(--blue);
 }
 
 .h2 {
   font-family: var(--header-font);
   font-size: 48px;
   line-height: 90%;
+  color: var(--blue);
 }
 
 .h3 {
