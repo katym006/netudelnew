@@ -29,3 +29,29 @@
         }
     }
 }
+
+.hero-section {
+    background-image: url('../pictures/hero-picture.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 570px;
+
+    .hero-section-title {
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        padding-top: 300px;
+        padding-left: 42px;
+        padding-right: 41px;
+
+        h1 {
+            color: var(--blue);
+        }
+
+        .hero-section-title-desc {
+            display: flex;
+            justify-content: space-between;
+        }
+    }
+}
