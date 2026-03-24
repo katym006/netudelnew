@@ -1,1 +1,56 @@
+* {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
 
+:root {
+  --primary-font: "Commons-Pro-Regular";
+  --secondary-font: "Commons-Pro-Medium";
+  --header-font: 'Tovar';
+  --bg-color: #FFF7F1;
+  --text-color: #003F4C;
+  --blue: #006174;
+  --green: #75A302;
+  --orange: #FF5B32;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.h1 {
+  font-family: var(--header-font);
+  font-size: 64px;
+  line-height: 80%;
+}
+
+.h2 {
+  font-family: var(--header-font);
+  font-size: 48px;
+  line-height: 90%;
+}
+
+.h3 {
+  font-family: var(--secondary-font);
+  font-size: 28px;
+  line-height: 85%;
+}
+
+.p1 {
+  font-family: var(--primary-font);
+  font-size: 20px;
+  line-height: 130%;
+}
+
+.p2 {
+  font-family: var(--secondary-font);
+  font-size: 16px;
+  line-height: 100%;
+}

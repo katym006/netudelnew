@@ -37,5 +37,7 @@
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
     "yarn": "^1.22.22"
-  }
+  },
+  "main": "index.js",
+  "repository": "https://github.com/katym006/netudel_01"
 }

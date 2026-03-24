@@ -1,0 +1,31 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    height: 85px;
+    padding-top: 30px;
+    padding-bottom: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    .header-menu {
+        ul {
+            list-style: none;
+            display: flex;
+            gap: 18px;
+        }
+
+        a {
+            text-decoration: none;
+            color: var(--text-color);
+            font-family: var(--primary-font);
+            font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: var(--orange);
+        }
+    }
+}
