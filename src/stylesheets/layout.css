@@ -75,3 +75,19 @@ body {
   height: 56px;
   width: 241px;
 }
+
+.card-btn {
+  border: 0;
+  gap: 10px;
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 10px;
+  a {
+    text-decoration: none;
+    font-family: var(--secondary-font);
+    font-size: 16px;
+    line-height: 100%;
+  }
+}
