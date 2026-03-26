@@ -1,14 +1,17 @@
 .header {
+    width: 100%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: var(--bg-color);
+    .header-wrapper {
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
     height: 85px;
     padding-top: 30px;
     padding-bottom: 20px;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    background-color: var(--bg-color);
+    }
 
     .header-menu {
         ul {
@@ -464,4 +467,90 @@
             
         
     }
+}
+
+.footer-hero {
+  background-color: var(--orange);
+  width: 100%;
+  padding: 80px 0 120px;
+  position: relative;
+  overflow: hidden;
+  color: var(--bg-color);
+}
+
+
+.footer-nav {
+  display: flex;
+  justify-content: space-between;   
+  gap: 70px;                  
+  margin-bottom: 40px;
+  flex-wrap: wrap;
+}
+
+.footer-nav a {
+  color: var(--bg-color);
+  text-decoration: none;
+  font-family: var(--primary-font);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.hero-card {
+  background: var(--bg-color);
+  border-radius: 10px;         
+  padding: 12px;
+  max-width: 1200px;          
+  margin: 0 auto 60px;
+}
+
+.hero-card img {
+  width: 100%;
+  height: 320px;
+  display: block;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.footer-contacts {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto 40px;
+  font-size: 24px;
+  font-family: var(--primary-font);
+  color: var(--bg-color);
+}
+
+.footer-contacts a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.footer-info {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  font-family: var(--primary-font);
+  font-size: 16px;
+  color: var(--bg-color);
+  margin: 0 auto 40px;
+}
+
+.footer-policy,
+.footer-copy {
+  opacity: 0.9;
+}
+
+.footer-bg-text {
+  position: absolute;
+  bottom: -60px;
+  left: 0;
+  right: 0;
+  text-align: center;
+  font-family: var(--header-font);
+  font-size: 245px;   
+  color: var(--bg-color);                       
+  pointer-events: none;
+  padding-left: 40px;
 }
