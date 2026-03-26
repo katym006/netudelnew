@@ -8,6 +8,7 @@
     position: sticky;
     top: 0;
     z-index: 1000;
+    background-color: var(--bg-color);
 
     .header-menu {
         ul {
@@ -76,7 +77,7 @@
 }
 
 .hobby-of-day {
-    width: 100vw;
+    width: 100%;
     overflow: hidden;
     margin-top: 120px;
     .hobby-of-day-title {
@@ -327,5 +328,126 @@
                 }
             }
         }
+    }
+}
+
+.popular-tests {
+    margin-top: 120px;
+
+    .popular-tests-wrapper {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        margin-top: 50px;
+        .popular-tests-cards {
+            display: flex;
+            .test-card {
+                .test-card-image {
+                    transition: all 0.4s ease;
+                }
+
+                width: 285px;
+                height: 325px;
+                color: var(--orange);
+                border: 1px solid var(--orange);
+                border-radius: 10px;
+                overflow: hidden;
+                padding: 20px;
+                background-color: var(--bg-color);
+                button {display: none;  transition: all 0.4s ease;}
+            }
+
+            .test-card:hover {
+                .test-card-image {
+                    transition: all 0.4s ease;
+                    transform: translateY(-50px) translateX(30px); 
+                    z-index: 3; ;
+
+                }
+                .tv-btn {
+                    margin-top: -50px ;
+                }
+                .leika-btn {
+                    margin-top: -10px;
+                }
+                button {
+                    margin-top: 0px;
+                    display: flex;
+                    a {color: var(--orange);}
+                     transition: all 0.4s ease;
+                }
+            }
+            .left { transform: translateY(30px) translateX(80px) rotate(-12deg); z-index: 1; }
+            .center { transform: translateX(0) rotate(0deg); z-index: 3; }
+            .right { transform: translateY(30px) translateX(-80px) rotate(12deg); z-index: 2; }
+        }
+
+        .popular-tests-arrows {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+            margin-top: -173px;
+        }
+
+        button {
+            width: 151px;
+            margin-top: 173px;
+        }
+    }
+}
+
+.subscribe-section {
+    background-image: url(../images/bg.png);
+    background-repeat: no-repeat;
+    background-size: 100%;
+
+    .subscribe {
+        padding-top: 198px ;
+        padding-bottom: 292px;
+        .subscribe-wrapper {
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            justify-self: center;
+            .subscribe-row {
+                .subscribe-row-wrapper {
+                    margin-top: 5px;
+                    display: flex;
+                    gap: 5px;
+                    input {
+                        outline: none;
+                        background-color: var(--bg-color);
+                    }
+                    input::placeholder {
+                            color: var(--blue);
+                            opacity: 50%;
+                        }
+                    input:focus {
+                        border-color: var(--orange);
+                        background-color: var(--bg-color);
+                        color: var(--blue);
+                    }
+                    input:not(:placeholder-shown) {
+                        border-color: var(--orange);
+                        background-color: var(--bg-color);
+                        color: var(--blue);
+                    }
+                    .subscribe-input {
+                        background-color: var(--bg-color);
+                        border: 1px solid var(--blue);
+                        border-radius: 10px;
+                        width: 357px;
+                        height: 30px;
+                        padding-left: 10px;
+                    }
+                }
+            }
+        }
+
+
+            
+        
     }
 }

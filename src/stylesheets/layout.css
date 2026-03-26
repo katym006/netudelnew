@@ -46,7 +46,7 @@ body {
 }
 
 .p1 {
-  font-family: var(--primary-font);
+  font-family: var(--secondary-font);
   font-size: 20px;
   line-height: 130%;
 }
@@ -95,6 +95,10 @@ body {
 
 .medium {
   height: 40px;
+}
+
+.small {
+  height: 30px;
 }
 
 .card-btn {
