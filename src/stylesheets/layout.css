@@ -59,7 +59,6 @@ body {
 
 .primary {
   background-color: var(--orange);
-  padding: 12.5px 10px;
   border: none;
   border-radius: 10px;
   a {
@@ -71,9 +70,29 @@ body {
   }
 }
 
+.secondary {
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  padding-left: 10px;
+  padding-right: 10px;
+  border: 1px solid var(--orange);
+  a {
+    text-decoration: none;
+    font-family: var(--primary-font);
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--orange);
+  }
+}
+
 .large{
   height: 56px;
   width: 241px;
+  padding: 10px;
+}
+
+.medium {
+  height: 40px;
 }
 
 .card-btn {
