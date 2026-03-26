@@ -75,8 +75,19 @@
 
 }
 
+.hobby-of-day {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
 .hobby-of-day-cards {
-    overflow: hidden;
+    width: 1940px;
+    display: flex;
+    gap: 85px;
+    align-items: center;
+
 
     .hobby-of-day-card {
         display: flex;
@@ -88,12 +99,17 @@
         overflow: hidden;
 
         .hobby-of-day-card-figures {
-            position: absolute;
+            position: relative;
+            z-index: 3;
+            margin-top: 0px;
         }
 
         .hobby-of-day-card-image {
             object-fit: cover;
             border-radius: 10px;
+            position: relative;
+            z-index: 1;
+            margin-top: -330px;
             .blur-bg {
             display: none;
             }
@@ -108,9 +124,11 @@
             display: flex;
             flex-direction: column;
             padding: 20px;
-            position: absolute;
-            margin-top: 203px;
-            border: 1px solid var(--green);
+            position: relative;
+            z-index: 2;
+            margin-top: -43px;
+            margin-left: -1px;
+            
             h2 {
                 color: var(--green);
             }
@@ -145,7 +163,7 @@
         }
         .hobby-of-day-card-desc {
             height: 205px;
-            margin-top: 119px;
+            margin-top: -125px;
             transition: all 0.4s ease;
         }
         .hobby-of-day-card-desc-icons{
@@ -170,3 +188,4 @@
         }
     }
 }
+
