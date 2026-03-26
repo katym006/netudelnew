@@ -13,6 +13,7 @@
   --blue: #006174;
   --green: #75A302;
   --orange: #FF5B32;
+  --btn-hover: #FF7C50;
 }
 
 body {
@@ -72,6 +73,10 @@ body {
   }
 }
 
+.primary:hover {
+  background-color: var(--btn-hover);
+}
+
 .secondary {
   background-color: var(--bg-color);
   border-radius: 10px;
@@ -85,6 +90,12 @@ body {
     line-height: 130%;
     color: var(--orange);
   }
+}
+
+.secondary:hover {
+  background-color: var(--btn-hover);
+  border-color: var(--btn-hover);
+  a{color: var(--bg-color);}
 }
 
 .large{
