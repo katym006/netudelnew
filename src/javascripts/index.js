@@ -1,16 +1,15 @@
 import '../stylesheets/style.css'
 
-const container = document.querySelector('.popular-tests-cards'); // родитель карточек
+// карточки тестов на главной
+const container = document.querySelector('.popular-tests-cards'); 
 const prevBtn = document.getElementById('next');
 const nextBtn = document.getElementById('prev');
 
-// вперёд (первая карточка уходит в конец)
 nextBtn.addEventListener('click', () => {
   const first = container.firstElementChild;
   container.appendChild(first);
 });
 
-// назад (последняя карточка становится первой)
 prevBtn.addEventListener('click', () => {
   const last = container.lastElementChild;
   container.insertBefore(last, container.firstElementChild);
@@ -23,10 +22,8 @@ const cards = [
 ];
 
 
-// текущий порядок (индексы карточек)
 let order = [0, 1, 2];
 
-// функция обновления классов
 function updateCards() {
   cards.forEach(card => {
     card.classList.remove('left', 'center', 'right');
@@ -37,14 +34,14 @@ function updateCards() {
   cards[order[2]].classList.add('right');
 }
 
-// кнопка "вперёд"
 nextBtn.addEventListener('click', () => {
-  order.push(order.shift()); // сдвиг влево
+  order.push(order.shift()); 
   updateCards();
 });
 
-// кнопка "назад"
 prevBtn.addEventListener('click', () => {
-  order.unshift(order.pop()); // сдвиг вправо
+  order.unshift(order.pop()); 
   updateCards();
 });
+
+

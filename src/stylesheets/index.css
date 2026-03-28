@@ -440,6 +440,7 @@
                     input::placeholder {
                             color: var(--blue);
                             opacity: 50%;
+                            font-family: var(--primary-font);
                         }
                     input:focus {
                         border-color: var(--orange);
@@ -497,8 +498,7 @@
 
 .hero-card {
   background: var(--bg-color);
-  border-radius: 10px;         
-  padding: 12px;
+  border-radius: 10px;
   max-width: 1200px;          
   margin: 0 auto 60px;
 }

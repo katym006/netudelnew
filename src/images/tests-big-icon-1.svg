@@ -1,0 +1,36 @@
+<svg width="318" height="304" viewBox="0 0 318 304" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g filter="url(#filter0_fn_1176_9179)">
+<mask id="mask0_1176_9179" style="mask-type:alpha" maskUnits="userSpaceOnUse" x="24" y="24" width="269" height="255">
+<ellipse cx="124.415" cy="80.7616" rx="109.347" ry="32.613" transform="rotate(-25.7506 124.415 80.7616)" fill="#D9D9D9"/>
+<ellipse cx="169.43" cy="174.068" rx="109.347" ry="32.613" transform="rotate(-25.7506 169.43 174.068)" fill="#D9D9D9"/>
+<ellipse cx="192.761" cy="222.448" rx="109.347" ry="32.613" transform="rotate(-25.7506 192.761 222.448)" fill="#D9D9D9"/>
+<ellipse cx="146.088" cy="125.684" rx="109.347" ry="32.613" transform="rotate(-25.7506 146.088 125.684)" fill="#D9D9D9"/>
+</mask>
+<g mask="url(#mask0_1176_9179)">
+<rect x="-101.188" y="76.6992" width="406.694" height="341.477" transform="rotate(-25.7506 -101.188 76.6992)" fill="url(#paint0_linear_1176_9179)"/>
+</g>
+</g>
+<defs>
+<filter id="filter0_fn_1176_9179" x="1.90735e-06" y="-9.72748e-05" width="317.176" height="303.21" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+<feFlood flood-opacity="0" result="BackgroundImageFix"/>
+<feBlend mode="normal" in="SourceGraphic" in2="BackgroundImageFix" result="shape"/>
+<feGaussianBlur stdDeviation="12.45" result="effect1_foregroundBlur_1176_9179"/>
+<feTurbulence type="fractalNoise" baseFrequency="3.3333332538604736 3.3333332538604736" stitchTiles="stitch" numOctaves="3" result="noise" seed="9575" />
+<feColorMatrix in="noise" type="luminanceToAlpha" result="alphaNoise" />
+<feComponentTransfer in="alphaNoise" result="coloredNoise1">
+<feFuncA type="discrete" tableValues="1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 "/>
+</feComponentTransfer>
+<feComposite operator="in" in2="effect1_foregroundBlur_1176_9179" in="coloredNoise1" result="noise1Clipped" />
+<feFlood flood-color="rgba(255, 255, 255, 0.25)" result="color1Flood" />
+<feComposite operator="in" in2="noise1Clipped" in="color1Flood" result="color1" />
+<feMerge result="effect2_noise_1176_9179">
+<feMergeNode in="effect1_foregroundBlur_1176_9179" />
+<feMergeNode in="color1" />
+</feMerge>
+</filter>
+<linearGradient id="paint0_linear_1176_9179" x1="24.0665" y1="246.124" x2="126.215" y2="-214.642" gradientUnits="userSpaceOnUse">
+<stop stop-color="#FF5E32"/>
+<stop offset="1" stop-color="#FFA893"/>
+</linearGradient>
+</defs>
+</svg>
