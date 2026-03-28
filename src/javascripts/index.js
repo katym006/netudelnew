@@ -44,4 +44,26 @@ prevBtn.addEventListener('click', () => {
   updateCards();
 });
 
+// фигуры
+document.addEventListener('DOMContentLoaded', () => {
+    const shapes = document.querySelectorAll('.main-figures');
+
+    function moveShapes() {
+        const scrollY = window.scrollY;   // сколько прокручено сверху
+
+        shapes.forEach(shape => {
+            const speed = parseFloat(shape.dataset.speed) || 0.4;  // скорость движения
+            const move = scrollY * speed * -1;   // отрицательное = вверх при скролле вниз
+
+            shape.style.transform = `translateY(${move}px)`;
+        });
+    }
+
+    // Запускаем при скролле
+    window.addEventListener('scroll', moveShapes, { passive: true });
+
+    // Первый вызов
+    moveShapes();
+});
+
 

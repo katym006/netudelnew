@@ -2,7 +2,7 @@
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 1000;
+    z-index: 4;
     background-color: var(--bg-color);
     .header-wrapper {
     display: flex;
@@ -31,6 +31,35 @@
         a:hover {
             color: var(--orange);
         }
+    }
+}
+
+.main-figures {
+    position: absolute;
+    z-index: 1000;
+    .top-figures {
+        position: absolute;
+        z-index: 1000;
+        top: -140px;
+        left: 370px;
+        img {
+            width: 451px;
+        }
+    }
+    .main-figure-1 {
+        position: absolute;
+        z-index: 1000;
+        img{width: 325px;}
+        left: -122px;
+        top: 320px;
+    }
+
+    .main-figure-2 {
+        position: relative;
+        z-index: 1000;
+        img{width: 325px;}
+        top: 22px;
+        right: -1300px;
     }
 }
 
