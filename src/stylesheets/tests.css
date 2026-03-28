@@ -168,4 +168,14 @@
 
 }
 
+@media (max-width: 375px) {
+    .test-card {
+        width: 165px;
+        height: 190px;
+        .test-card-image{
+            img{width: 160px;
+            height: 137px;}
+        }
+    }
 
+}

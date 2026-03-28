@@ -64,6 +64,7 @@
 }
 
 .hero-section {
+    overflow: visible;
     background-image: url('../images/hero-picture.png');
     background-repeat: no-repeat;
     background-position: center;
@@ -374,21 +375,7 @@
         margin-top: 50px;
         .popular-tests-cards {
             display: flex;
-            .test-card {
-                .test-card-image {
-                    transition: all 0.4s ease;
-                }
 
-                width: 285px;
-                height: 325px;
-                color: var(--orange);
-                border: 1px solid var(--orange);
-                border-radius: 10px;
-                overflow: hidden;
-                padding: 20px;
-                background-color: var(--bg-color);
-                button {display: none;  transition: all 0.4s ease;}
-            }
 
             .test-card:hover {
                 .test-card-image {
@@ -543,7 +530,6 @@
 .footer-contacts {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
   margin: 0 auto 40px;
   font-size: 24px;
   font-family: var(--primary-font);
@@ -558,7 +544,6 @@
 .footer-info {
   display: flex;
   justify-content: space-between;
-  max-width: 1200px;
   margin: 0 auto;
   font-family: var(--primary-font);
   font-size: 16px;
@@ -582,4 +567,323 @@
   color: var(--bg-color);                       
   pointer-events: none;
   padding-left: 40px;
+}
+
+/* бургер скрыт на десктопе */
+.burger {
+  display: none;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.burger span {
+  width: 25px;
+  height: 3px;
+  background: var(--text-color);
+  display: block;
+}
+
+/* АДАПТИВ */
+@media (max-width: 375px) {
+
+  .burger {
+    display: flex;
+  }
+
+  .header-menu {
+    position: absolute;
+    top: 85px;
+    right: 0;
+    width: 100%;
+    background: var(--bg-color);
+    display: none;
+  }
+
+  .header-menu ul {
+    flex-direction: column;
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .header-menu.active {
+    display: block;
+  }
+
+  .main-figures{
+    .top-figures {
+        img{
+            width: 123px;
+        }
+
+        left: 55px;
+        top: 8px;
+    }
+
+    .main-figure-1{
+        img{
+            width: 70px;
+        }
+        left: -24px;
+        top: 115px;
+    }
+
+    .main-figure-2{
+        img{
+            width: 70px;
+        }
+        right: -300px;
+        top: 18px;
+    }
+  }
+
+  .hero-section {
+    background-image: url(../images/main-hero-mobile.png);
+    border-radius: 10px;
+    height: 395px;
+
+    .hero-section-title{
+        padding-left: 20px;
+        padding-top: 272px;
+        gap: 15px;
+        .hero-section-title-desc{
+            flex-direction: column;
+            button{
+                margin-top: 15px;
+            }
+
+        }
+    }
+  }
+
+  .statistic{
+    margin-top: 20px;
+    .statistic-item {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        align-items: flex-start;
+
+        .statistic-text {
+            font-family: var(--primary-font);
+            font-size: 12px;
+            line-height: 108%;
+        }
+    }
+  }
+
+    .hobby-of-day{
+        margin-top: 35px;
+        .hobby-of-day-title{
+            align-items: flex-start;
+                .hobby-of-day-title-desc {
+                    width: 165px;
+                }
+            }
+
+        .hobby-of-day-cards {
+            margin-top: 20px;
+            gap: 5px;
+            .hobby-of-day-card{
+                width: 250px;
+                height: 135px;
+                .hobby-of-day-card-figures{
+                    img{
+                        width: 318px;
+                        height: 161px;
+                    }
+                }
+                .hobby-of-day-card-image{
+                    margin-top: -170px;
+                    img{
+                        width: 250px;
+                    }
+                }
+                .hobby-of-day-card-desc{
+                    width: 250px;
+                    height: 60px;
+                    padding: 10px;
+                }
+            }
+
+            .hobby-of-day-card-tomorrow{
+                width: 250px;
+                height: 135px;
+                img {
+                    width: 250px;
+                    height: 135px;
+                }
+            }
+        }
+
+        .hobby-of-day-buttons{
+            margin-top: 20px;
+            justify-self: center;
+            button{
+                min-width: 80px;
+            }
+            .secondary{
+                display: none;
+            }
+        }
+    }
+
+    .popular-articles {
+        margin-top: 40px;
+        .popular-articles-wrapper {
+            gap: 5px;
+            .popular-articles-info {
+                width: 165px;
+                height: 190px;
+                .popular-articles-btn{
+                    width: 122px;
+                }
+            }
+            .popular-articles-cards {
+                height: 190px;
+                .article-card{
+                    width: 165px;
+                    height: 190px;
+                    .article-card-image{
+                        img{
+                            width: 187px;
+                            height: 125px;
+                        }
+                    }
+
+                    .article-card-desc{
+                        width: 165px;
+                        height: 95px;
+                        margin-top: -120px;
+                        padding: 10px;
+                        margin-left: -1px;
+
+                    }
+                }
+                .long{
+                    display: none;
+                }
+            }
+        }
+    }
+
+    .popular-tests {
+        margin-top: 35px;
+        .popular-tests-wrapper {
+            margin-top: 20px;
+            .popular-tests-cards {
+                
+                    .test-card {
+                        width: 165px;
+                        height: 190px;
+                    }
+
+            .left { transform: translateY(5px) translateX(155px) rotate(-4deg); z-index: 1; }
+            .center { transform: translateX(0) rotate(0deg); z-index: 3; }
+            .right { transform: translateY(5px) translateX(-155px) rotate(4deg); z-index: 2; }
+            }
+
+            .popular-tests-arrows {
+                margin-top: -100px;
+                
+                .arrow-left {
+                    img {
+                        width: 70px;
+                    }
+                }
+
+                .arrow-right {
+                    img {
+                        width: 70px;
+                    }
+                }
+            }
+
+            button {
+                margin-top: 100px;
+            }
+        }
+    }
+
+    .subscribe-section {
+        background-image: url(../images/bg-mobile.png);
+        .subscribe {
+            .subscribe-wrapper {
+                margin-left: -120px;
+            .subscribe-row {
+                .subscribe-row-wrapper {
+                    flex-direction: column;
+                    gap: 10px;
+                    .subscribe-input {
+                        width: 192px;
+                        height: 15px;
+                        padding-left: 10px;
+                        input::placeholder{
+                            font-size: 10px;
+                        }
+                    }
+                    width: 77px;
+                }
+            }
+        }
+        }
+    }
+
+    
+    .footer-hero {
+    position: relative;
+    overflow: hidden;
+    padding: 50px 0 100px;
+}
+
+.footer-nav {
+    display: flex;
+    flex-direction: column; 
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.footer-nav a {
+    text-decoration: none;
+    font-family: var(--primary-font);
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.hero-card {
+    border-radius: 12px;
+    margin: 0 auto 40px;
+    overflow: hidden;
+    max-width: 335px;
+}
+
+.hero-card img {
+    width: 335px;
+    height: 145px;
+    display: block;
+    object-fit: cover;
+}
+
+.footer-contacts {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    font-size: 18px;
+    margin-bottom: 32px;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    font-family: var(--primary-font);
+    font-size: 14px;
+    opacity: 0.95;
+}
+
+.footer-bg-text {
+    display: none;
+}
+    
+
 }

@@ -212,6 +212,82 @@ body {
   }
 }
 
+@media (max-width: 1024px){
+  .container{
+    max-width: 884px;
+  }
+}
+
+@media (max-width: 375px) {
+  .container {
+    max-width: 335px;
+    margin: 0 auto;
+    overflow: hidden;
+  }
+
+  .h1 {
+  font-family: var(--header-font);
+  font-size: 24px;
+  line-height: 100%;
+  color: var(--blue);
+}
+
+.h2 {
+  font-family: var(--header-font);
+  font-size: 20px;
+  line-height: 90%;
+  color: var(--blue);
+}
+
+.h3 {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  line-height: 85%;
+}
+
+.p1 {
+  font-family: var(--secondary-font);
+  font-size: 12px;
+  line-height: 110%;
+}
+
+.p2 {
+  font-family: var(--primary-font);
+  font-size: 10px;
+  line-height: 90%;
+}
+
+.primary {
+  background-color: var(--orange);
+  border: none;
+  border-radius: px;
+  a {
+    font-family: var(--primary-font);
+    font-size: 10px;
+    line-height: 90%;
+    color: var(--bg-color);
+    text-decoration: none;
+  }
+}
+
+.large{
+  height: 30px;
+  width: 103px;
+  padding: 4px;
+}
+
+.medium {
+  height: 20px;
+}
+
+.small {
+  height: 15px;
+}
+
+
+
+}
+
 
 
 
