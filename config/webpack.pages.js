@@ -14,6 +14,9 @@ const htmlPages = [
   createPages('./src/pages/tests.html', './tests.html', ['index']),
   createPages('./src/pages/tests/test_your_character.html', './test_your_character.html', ['index']),
   createPages('./src/pages/tests/test_result.html', './test_result.html', ['index']),
+  createPages('./src/pages/articles.html', './articles.html', ['index']),
+  createPages('./src/pages/about.html', './about.html', ['index']),
+
 ]
 
 module.exports = htmlPages

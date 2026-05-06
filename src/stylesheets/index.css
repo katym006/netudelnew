@@ -2,8 +2,9 @@
     width: 100%;
     position: sticky;
     top: 0;
-    z-index: 4;
+    z-index: 1000;
     background-color: var(--bg-color);
+    
     .header-wrapper {
     display: flex;
     justify-content: space-between;
@@ -13,25 +14,25 @@
     padding-bottom: 20px;
     }
 
-    .header-menu {
-        ul {
-            list-style: none;
-            display: flex;
-            gap: 18px;
-        }
+        .header-menu {
+            ul {
+                list-style: none;
+                display: flex;
+                gap: 18px;
+            }
 
-        a {
-            text-decoration: none;
-            color: var(--text-color);
-            font-family: var(--primary-font);
-            font-size: 16px;
-            transition: color 0.3s;
-        }
+            a {
+                text-decoration: none;
+                color: var(--text-color);
+                font-family: var(--primary-font);
+                font-size: 16px;
+                transition: color 0.3s;
+            }
 
-        a:hover {
-            color: var(--orange);
+            a:hover {
+                color: var(--orange);
+            }
         }
-    }
 }
 
 .main-figures {
