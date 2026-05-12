@@ -15,6 +15,10 @@
         width: 280px;
         height: 36px;
 
+        .disabled {
+            opacity: 50%;
+        }
+
         input {
             background-color: var(--bg-color);
             outline: none;
@@ -187,5 +191,74 @@
 
 .footer-green {
     background-color: var(--green);
+}
+
+
+
+.M_Search {
+    max-width: 1000px;
+    margin: 100px auto 30px;
+    text-align: center;
+}
+
+.A_SearchInput {
+    font-size: 16px;
+    border: 1px solid #000;
+    padding: 12px 20px;
+    border-radius: 12px;
+    min-width: 400px;
+}
+
+.A_SearchButton {
+    font-size: 16px;
+    border: 1px solid #000;
+    background-color: #000;
+    padding: 12px 20px;
+    border-radius: 12px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.A_SearchButton.disabled {
+    cursor: default;
+    opacity: 0.5;
+}
+
+.S_Content {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.O_Article {
+    width: calc(100% / 3 - 30px);
+    border: 1px solid #000;
+    border-radius: 12px;
+    padding: 12px 20px;
+}
+
+.A_ArticleTitle {
+    font-size: 20px;
+    margin-bottom: 20px;
+    display: block;
+}
+
+.A_SearchDelete {
+    position: relative;
+}
+
+.A_SearchDelete::after {
+    content: '×';
+    position: absolute;
+    top: 2px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.A_SearchDelete.disabled::after {
+    content: '';
+    cursor: default;
 }
 
