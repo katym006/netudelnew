@@ -78,7 +78,7 @@ function searchContent (requestText) {
         content.forEach((contentItem) => {
             const nbspRegEx = /[\u202F\u00A0]/gm
             const punctuationRegEx = /[.,\/#!$%\^&\*;:{}=_`()]/gm
-            let {id, title, time, cost, complexity} = contentItem;
+            let {id, title, time, cost, complexity, image, desc} = contentItem;
 
             title = title.toLowerCase();
             title = title.replaceAll(nbspRegEx, ' ');
@@ -137,24 +137,83 @@ function getSearchRequest () {
     })
 } */
 
+
+
 function createCards(content) {
     content.forEach((contentItem) => {
-        let {id, title, time, cost, complexity} = contentItem;
+        let {id, title, time, cost, complexity, image, desc} = contentItem;
 
         const cardItem = document.createElement('div');
-        cardItem.classList.add('O_Article');
+        cardItem.classList.add('hobby-card');
 
-        const cardItemTitle = document.createElement('a');
-        cardItemTitle.classList.add('A_ArticleTitle');
-        cardItemTitle.innerText = title;
-        // cardItemTitle.setAttribute('href', link);
 
-        // const cardItemDescription = document.createElement('p');
-        // cardItemDescription.classList.add('A_ArticleDesctiption');
-        // cardItemDescription.innerText = description;
+        const cardItemImage = document.createElement('div');
+        cardItemImage.classList.add('hobby-card-image');
+        const img = document.createElement('img');
+        img.src = image[0].url  
 
-        cardItem.appendChild(cardItemTitle);
-        // cardItem.appendChild(cardItemDescription);
+        const cardItemBg = document.createElement('div');
+        cardItemBg.classList.add('blur-bg')
+        cardItemBg.innerText = '.'
+
+
+        const cardItemDesc = document.createElement('div');
+        cardItemDesc.classList.add('hobby-card-desc')
+
+        const cardItemDescH = document.createElement('h3');
+        cardItemDescH.classList.add('h3')
+        cardItemDescH.innerText = title
+
+        const cardItemDescTags = document.createElement('div');
+        cardItemDescTags.classList.add('hobby-card-tags')
+
+        const cardItemDescTagTime = document.createElement('div')
+        cardItemDescTagTime.classList.add('p2')
+        cardItemDescTagTime.classList.add('hobby-card-tag')
+        cardItemDescTagTime.innerText = time
+        
+        const cardItemDescTagCost = document.createElement('div')
+        cardItemDescTagCost.classList.add('p2')
+        cardItemDescTagCost.classList.add('hobby-card-tag')
+        cardItemDescTagCost.innerText = cost
+
+        const cardItemDescTagComplexity = document.createElement('div')
+        cardItemDescTagComplexity.classList.add('p2')
+        cardItemDescTagComplexity.classList.add('hobby-card-tag')
+        cardItemDescTagComplexity.innerText = complexity
+
+        const cardItemDescP = document.createElement('p');
+        cardItemDescP.classList.add('p2')
+        cardItemDescP.innerText = desc
+
+        const cardItemDescButton = document.createElement('button')
+        cardItemDescButton.classList.add('card-btn')
+        cardItemDescButton.classList.add('green')
+        cardItemDescButton.setAttribute('href', '#');
+        cardItemDescButton.innerText = 'смотреть'
+        const cardItemDescButtonImg = document.createElement('img')
+        cardItemDescButtonImg.src = '../images/hobby-card-arrow.svg'
+
+
+        cardItem.appendChild(cardItemImage);
+        cardItem.appendChild(cardItemImage);
+        cardItem.appendChild(cardItemDesc);
+        
+        cardItemImage.appendChild(img);
+        cardItemImage.appendChild(cardItemBg);
+
+        cardItemDesc.appendChild(cardItemDescH)
+        cardItemDesc.appendChild(cardItemDescTags)
+        cardItemDesc.appendChild(cardItemDescP)
+
+        cardItemDescTags.appendChild(cardItemDescTagTime)
+        cardItemDescTags.appendChild(cardItemDescTagCost)
+        cardItemDescTags.appendChild(cardItemDescTagComplexity)
+
+        cardItemDesc.appendChild(cardItemDescButton)
+        cardItemDescButton.appendChild(cardItemDescButtonImg)
+
+        
 
         document.querySelector('.S_Content').appendChild(cardItem);
     })

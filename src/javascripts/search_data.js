@@ -21,6 +21,8 @@ function getPostTeasers() {
                         time: record.fields['time'],
                         cost: record.fields['cost'],
                         complexity: record.fields['complexity'],
+                        image: record.fields['image'],
+                        desc: record.fields['desc'],
                     })
                 });
                 resolve(content);

@@ -29,7 +29,9 @@ function getPostTeasers() {
           title: record.fields['Name'],
           time: record.fields['time'],
           cost: record.fields['cost'],
-          complexity: record.fields['complexity']
+          complexity: record.fields['complexity'],
+          image: record.fields['image'],
+          desc: record.fields['desc']
         });
       });
       resolve(content);
@@ -3951,7 +3953,9 @@ function searchContent(requestText) {
         title = contentItem.title,
         time = contentItem.time,
         cost = contentItem.cost,
-        complexity = contentItem.complexity;
+        complexity = contentItem.complexity,
+        image = contentItem.image,
+        desc = contentItem.desc;
       title = title.toLowerCase();
       title = title.replaceAll(nbspRegEx, ' ');
       title = title.replaceAll(punctuationRegEx, '');
@@ -4009,21 +4013,60 @@ function createCards(content) {
       title = contentItem.title,
       time = contentItem.time,
       cost = contentItem.cost,
-      complexity = contentItem.complexity;
+      complexity = contentItem.complexity,
+      image = contentItem.image,
+      desc = contentItem.desc;
     var cardItem = document.createElement('div');
-    cardItem.classList.add('O_Article');
-    var cardItemTitle = document.createElement('a');
-    cardItemTitle.classList.add('A_ArticleTitle');
-    cardItemTitle.innerText = title;
-    // cardItemTitle.setAttribute('href', link);
-
-    // const cardItemDescription = document.createElement('p');
-    // cardItemDescription.classList.add('A_ArticleDesctiption');
-    // cardItemDescription.innerText = description;
-
-    cardItem.appendChild(cardItemTitle);
-    // cardItem.appendChild(cardItemDescription);
-
+    cardItem.classList.add('hobby-card');
+    var cardItemImage = document.createElement('div');
+    cardItemImage.classList.add('hobby-card-image');
+    var img = document.createElement('img');
+    img.src = image[0].url;
+    var cardItemBg = document.createElement('div');
+    cardItemBg.classList.add('blur-bg');
+    cardItemBg.innerText = '.';
+    var cardItemDesc = document.createElement('div');
+    cardItemDesc.classList.add('hobby-card-desc');
+    var cardItemDescH = document.createElement('h3');
+    cardItemDescH.classList.add('h3');
+    cardItemDescH.innerText = title;
+    var cardItemDescTags = document.createElement('div');
+    cardItemDescTags.classList.add('hobby-card-tags');
+    var cardItemDescTagTime = document.createElement('div');
+    cardItemDescTagTime.classList.add('p2');
+    cardItemDescTagTime.classList.add('hobby-card-tag');
+    cardItemDescTagTime.innerText = time;
+    var cardItemDescTagCost = document.createElement('div');
+    cardItemDescTagCost.classList.add('p2');
+    cardItemDescTagCost.classList.add('hobby-card-tag');
+    cardItemDescTagCost.innerText = cost;
+    var cardItemDescTagComplexity = document.createElement('div');
+    cardItemDescTagComplexity.classList.add('p2');
+    cardItemDescTagComplexity.classList.add('hobby-card-tag');
+    cardItemDescTagComplexity.innerText = complexity;
+    var cardItemDescP = document.createElement('p');
+    cardItemDescP.classList.add('p2');
+    cardItemDescP.innerText = desc;
+    var cardItemDescButton = document.createElement('button');
+    cardItemDescButton.classList.add('card-btn');
+    cardItemDescButton.classList.add('green');
+    cardItemDescButton.setAttribute('href', '#');
+    cardItemDescButton.innerText = 'смотреть';
+    var cardItemDescButtonImg = document.createElement('img');
+    cardItemDescButtonImg.src = '../images/hobby-card-arrow.svg';
+    cardItem.appendChild(cardItemImage);
+    cardItem.appendChild(cardItemImage);
+    cardItem.appendChild(cardItemDesc);
+    cardItemImage.appendChild(img);
+    cardItemImage.appendChild(cardItemBg);
+    cardItemDesc.appendChild(cardItemDescH);
+    cardItemDesc.appendChild(cardItemDescTags);
+    cardItemDesc.appendChild(cardItemDescP);
+    cardItemDescTags.appendChild(cardItemDescTagTime);
+    cardItemDescTags.appendChild(cardItemDescTagCost);
+    cardItemDescTags.appendChild(cardItemDescTagComplexity);
+    cardItemDesc.appendChild(cardItemDescButton);
+    cardItemDescButton.appendChild(cardItemDescButtonImg);
     document.querySelector('.S_Content').appendChild(cardItem);
   });
 }

@@ -3858,7 +3858,9 @@ function getPostTeasers() {
           title: record.fields['Name'],
           time: record.fields['time'],
           cost: record.fields['cost'],
-          complexity: record.fields['complexity']
+          complexity: record.fields['complexity'],
+          image: record.fields['image'],
+          desc: record.fields['desc']
         });
       });
       resolve(content);
