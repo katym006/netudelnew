@@ -9,10 +9,6 @@
   height: 1100px;
 }
 
-.media-hero__inner {
-  max-width: 1200px;
-  margin: 0 auto;
-}
 
 .media-hero__title {
   font-size: 72px;
@@ -23,15 +19,15 @@
 }
 
 .media-hero__content {
-  max-width: 480px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  margin-left: 110px;
   font-family: var(--primary-font);
+  
 }
 
 .media-hero__text {
+  width: 480px;
   font-size: 18px;
   line-height: 1.5;
   color: var(--blue);
@@ -331,6 +327,10 @@ body {
   transition: 0.2s;
 }
 
+.join-container{
+  margin-top: 100px;
+}
+
 .join-right {
   display: flex;
   justify-content: center;
@@ -365,6 +365,7 @@ body {
 .socials {
   display: flex;
   gap: 24px;
+  margin-top: 20px;
 }
 
 .social {
@@ -405,6 +406,10 @@ body {
 
 
 /* TEAM */
+
+.team{
+  margin-top: 100px ;
+}
 .page-title {
   font-size: 64px;
   color: var(--blue);
@@ -465,55 +470,7 @@ body {
 
 
 /* подписка */
-.subscribe-section {
-    background-image: url(../images/bg.png);
-    background-repeat: no-repeat;
-    background-size: 100%;
 
-    .subscribe {
-        padding-top: 198px ;
-        padding-bottom: 292px;
-        .subscribe-wrapper {
-            margin-top: 50px;
-            display: flex;
-            flex-direction: column;
-            justify-self: center;
-            .subscribe-row {
-                .subscribe-row-wrapper {
-                    margin-top: 5px;
-                    display: flex;
-                    gap: 5px;
-                    input {
-                        outline: none;
-                        background-color: var(--bg-color);
-                    }
-                    input::placeholder {
-                            color: var(--blue);
-                            opacity: 50%;
-                        }
-                    input:focus {
-                        border-color: var(--orange);
-                        background-color: var(--bg-color);
-                        color: var(--blue);
-                    }
-                    input:not(:placeholder-shown) {
-                        border-color: var(--orange);
-                        background-color: var(--bg-color);
-                        color: var(--blue);
-                    }
-                    .subscribe-input {
-                        background-color: var(--bg-color);
-                        border: 1px solid var(--blue);
-                        border-radius: 10px;
-                        width: 357px;
-                        height: 30px;
-                        padding-left: 10px;
-                    }
-                }
-            }
-        }
-    }
-}
 
 
 /* футер */

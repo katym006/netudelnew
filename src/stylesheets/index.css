@@ -66,7 +66,7 @@
 
 .hero-section {
     overflow: visible;
-    background-image: url('../images/hero-picture.png');
+    background-image: url('../images/main-bg.jpg');
     background-repeat: no-repeat;
     background-position: center;
     background-size: cover;
@@ -294,6 +294,7 @@
                 }
 
                 .article-card-desc {
+                    width: 283px;
                     background-color: var(--bg-color);
                     border-radius: 10px;
                     display: flex;
@@ -436,10 +437,12 @@
     background-image: url(../images/bg.png);
     background-repeat: no-repeat;
     background-size: 100%;
+    margin-top: 100px;
 
     .subscribe {
         padding-top: 198px ;
         padding-bottom: 292px;
+        max-width: 1200px;
         .subscribe-wrapper {
             margin-top: 50px;
             display: flex;
@@ -453,6 +456,8 @@
                     input {
                         outline: none;
                         background-color: var(--bg-color);
+                        height: 50px;
+                        font-size: 20px;
                     }
                     input::placeholder {
                             color: var(--blue);
@@ -474,7 +479,7 @@
                         border: 1px solid var(--blue);
                         border-radius: 10px;
                         width: 357px;
-                        height: 30px;
+                        height: 50px;
                         padding-left: 10px;
                     }
                 }

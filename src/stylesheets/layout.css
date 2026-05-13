@@ -141,6 +141,7 @@ body {
   border-radius: 10px;
   padding-left: 10px;
   padding-right: 10px;
+  width: 200px;
   a {
     font-family: var(--primary-font);
     font-size: 20px;
@@ -176,8 +177,8 @@ body {
 }
 
 .large{
-  height: 56px;
-  width: 241px;
+  height: 50px;
+  width: 200px;
   padding: 10px;
 }
 

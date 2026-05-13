@@ -11,6 +11,8 @@ module.exports = {
     index: './src/javascripts/index.js',
     search_data: './src/javascripts/search_data.js',
     search: './src/javascripts/search.js',
+    search_articles: './src/javascripts/search_articles.js',
+    search_articles_data: './src/javascripts/search_articles_data.js',
   },
   output: {
     filename: '[name].js',
