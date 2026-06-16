@@ -168,7 +168,7 @@ function createCards(content) {
         cardArticleItemDescButton.setAttribute('href', '#');
         cardArticleItemDescButton.innerText = 'смотреть'
         const cardArticleItemDescButtonImg = document.createElement('img')
-        cardArticleItemDescButtonImg.src = '../images/hobby-card-arrow.svg'
+        cardArticleItemDescButtonImg.src = './images/hobby-card-arrow.svg'
 
         cardArticleItem.appendChild(cardArticleItemImage)
         cardArticleItem.appendChild(cardArticleItemDesc)

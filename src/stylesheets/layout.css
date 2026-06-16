@@ -219,11 +219,15 @@ body {
   }
 }
 
+/* ТАБЛЕТ */
+
 @media (max-width: 1024px){
   .container{
     max-width: 884px;
   }
 }
+
+/* МОБИЛКА */
 
 @media (max-width: 375px) {
   .container {
