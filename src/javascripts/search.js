@@ -1,4 +1,5 @@
 import {getPostTeasers} from './search_data.js'
+import arrowSvg from '../images/hobby-card-arrow.svg';
 
 let content
 
@@ -192,7 +193,7 @@ function createCards(content) {
         cardItemDescButton.setAttribute('href', '#');
         cardItemDescButton.innerText = 'смотреть'
         const cardItemDescButtonImg = document.createElement('img')
-        cardItemDescButtonImg.src = '../images/hobby-card-arrow.svg'
+        cardItemDescButtonImg.src = arrowSvg
 
 
         cardItem.appendChild(cardItemImage);

@@ -1,4 +1,5 @@
 import {getPostTeasers} from './search_articles_data.js'
+import articleArrowSvg from '../images/article-card-arrow.svg'
 
 let content
 
@@ -145,8 +146,8 @@ function createCards(content) {
 
         const cardArticleItemImage = document.createElement('div');
         cardArticleItemImage.classList.add('article-card-image');
-        const img = document.createElement('img');
-        img.src = image.url; 
+        const cardArticleItemImageImage = document.createElement('img');
+        cardArticleItemImageImage.src = image[0].url; 
 
 
         const cardArticleItemDesc = document.createElement('div');
@@ -168,12 +169,13 @@ function createCards(content) {
         cardArticleItemDescButton.setAttribute('href', '#');
         cardArticleItemDescButton.innerText = 'смотреть'
         const cardArticleItemDescButtonImg = document.createElement('img')
-        cardArticleItemDescButtonImg.src = './images/hobby-card-arrow.svg'
+        cardArticleItemDescButtonImg.src = './images/article-card-arrow.svg'
 
         cardArticleItem.appendChild(cardArticleItemImage)
         cardArticleItem.appendChild(cardArticleItemDesc)
 
         cardArticleItemImage.appendChild(cardArticleItemBg)
+        cardArticleItemImage.appendChild(cardArticleItemImageImage)
 
         cardArticleItemDesc.appendChild(cardArticleItemDescH)
         cardArticleItemDesc.appendChild(cardArticleItemDescTags)

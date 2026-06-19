@@ -247,6 +247,34 @@
     }
 }
 
+.hobby-of-day {
+    width: 100%;
+    overflow: hidden;
+}
+
+.hobby-slider {
+    overflow: hidden;
+    width: 100%;
+}
+
+.hobby-track {
+    display: flex;
+    gap: 85px;
+    transition: transform 0.5s ease;
+    width: max-content;
+}
+
+.hobby-of-day-slide {
+    flex-shrink: 0;
+    width: 590px;
+}
+
+.hobby-of-day-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
+}
+
 .popular-articles {
     margin-top: 120px;
 
