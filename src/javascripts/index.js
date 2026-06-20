@@ -1,4 +1,6 @@
 import '../stylesheets/style.css'
+import '../stylesheets/style.css'
+import { initHobbySlider } from './hobby_slider.js'
 
 // карточки тестов на главной
 const container = document.querySelector('.popular-tests-cards'); 
@@ -74,60 +76,7 @@ burger.addEventListener("click", () => {
   burger.classList.toggle("active");
 });
 
-const track = document.querySelector(".hobby-track");
-
-const prevhobbyBtn = document.getElementById("prevhobbyBtn");
-const nexthobbyBtn = document.getElementById("nexthobbyBtn");
-
-const cardWidth = 590;
-const gap = 85;
-
-const step = cardWidth + gap;
-
-const slides = document.querySelectorAll(".hobby-of-day-slide");
-
-let currentIndex = 1;
-
-
-function updateSlider() {
-
-    const sliderWidth =
-        document.querySelector(".hobby-slider").offsetWidth;
-
-    const offset =
-        sliderWidth / 2 -
-        cardWidth / 2 -
-        currentIndex * step;
-
-    track.style.transform =
-        `translateX(${offset}px)`;
-
-    prevhobbyBtn.disabled = currentIndex === 0;
-    nexthobbyBtn.disabled =
-        currentIndex === slides.length - 1;
-}
-
-prevhobbyBtn.addEventListener("click", () => {
-
-    if (currentIndex > 0) {
-        currentIndex--;
-        updateSlider();
-    }
-
-});
-
-nexthobbyBtn.addEventListener("click", () => {
-
-    if (currentIndex < slides.length - 1) {
-        currentIndex++;
-        updateSlider();
-    }
-
-});
-
-window.addEventListener("resize", updateSlider);
-
-updateSlider();
+initHobbySlider();
 
 
 

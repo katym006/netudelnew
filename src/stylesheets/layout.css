@@ -17,6 +17,10 @@
   --btn-hover: #FF7C50;
 }
 
+html, body {
+  overflow-x: hidden;
+}
+
 body {
   background-color: var(--bg-color);
   color: var(--text-color);
@@ -142,6 +146,9 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   width: 200px;
+  font-family: var(--primary-font);
+  color: var(--bg-color);
+  font-size: 20px;
   a {
     font-family: var(--primary-font);
     font-size: 20px;
@@ -161,6 +168,10 @@ body {
   padding-left: 10px;
   padding-right: 10px;
   border: 1px solid var(--orange);
+  font-family: var(--primary-font);
+    font-size: 20px;
+    line-height: 130%;
+    color: var(--orange);
   a {
     text-decoration: none;
     font-family: var(--primary-font);
@@ -173,6 +184,7 @@ body {
 .secondary:hover {
   background-color: var(--btn-hover);
   border-color: var(--btn-hover);
+  color: var(--bg-color);
   a{color: var(--bg-color);}
 }
 
