@@ -1,6 +1,71 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	"use strict";
 
+;// ./src/javascripts/hobby_slider.js
+function initHobbySlider() {
+  var section = document.querySelector('.hobby-of-day');
+  if (!section) return;
+  var track = section.querySelector('.hobby-track');
+  var slides = section.querySelectorAll('.hobby-of-day-card');
+  var buttons = section.querySelectorAll('.hobby-of-day-buttons button');
+  if (!track || slides.length === 0 || buttons.length < 3) return;
+
+  // порядок кнопок в разметке: назад / в каталог / вперёд
+  var prevBtn = buttons[0];
+  var catalogBtn = buttons[1];
+  var nextBtn = buttons[2];
+  var YESTERDAY_INDEX = 0;
+  var TODAY_INDEX = 1;
+  var TOMORROW_INDEX = slides.length - 1;
+  var cardWidth = 590;
+  var gap = 85;
+  var step = cardWidth + gap;
+  var currentIndex = TODAY_INDEX;
+  function goToIndex(index) {
+    currentIndex = index;
+    var sliderWidth = section.offsetWidth;
+    var offset = sliderWidth / 2 - cardWidth / 2 - currentIndex * step;
+    track.style.transform = "translateX(".concat(offset, "px)");
+    updateCatalogButtonText();
+  }
+
+  // если ушли с "сегодняшней" карточки — кнопка предлагает вернуться к ней
+  function updateCatalogButtonText() {
+    catalogBtn.textContent = currentIndex === TODAY_INDEX ? 'в каталог' : 'сегодняшнее хобби';
+  }
+
+  // нажатая кнопка — оранжевая (primary), остальные две — белые (secondary)
+  function setActiveButton(activeBtn) {
+    buttons.forEach(function (btn) {
+      var isActive = btn === activeBtn;
+      btn.classList.toggle('primary', isActive);
+      btn.classList.toggle('secondary', !isActive);
+    });
+  }
+
+  // клик всегда ведёт к фиксированной карточке, а не сдвигает на шаг от текущей
+  prevBtn.addEventListener('click', function () {
+    goToIndex(YESTERDAY_INDEX);
+    setActiveButton(prevBtn);
+  });
+  nextBtn.addEventListener('click', function () {
+    goToIndex(TOMORROW_INDEX);
+    setActiveButton(nextBtn);
+  });
+  catalogBtn.addEventListener('click', function () {
+    goToIndex(TODAY_INDEX);
+    setActiveButton(catalogBtn);
+  });
+  window.addEventListener('resize', function () {
+    return goToIndex(currentIndex);
+  });
+  goToIndex(currentIndex);
+}
+
+;// ./src/javascripts/index.js
+
+
+
 
 // карточки тестов на главной
 var container = document.querySelector('.popular-tests-cards');
@@ -60,6 +125,12 @@ var menu = document.querySelector(".header-menu");
 burger.addEventListener("click", function () {
   menu.classList.toggle("active");
   burger.classList.toggle("active");
+});
+initHobbySlider();
+document.querySelectorAll('.card-nav').forEach(function (btn) {
+  btn.addEventListener('click', function () {
+    window.location.href = btn.dataset.href;
+  });
 });
 /******/ })()
 ;

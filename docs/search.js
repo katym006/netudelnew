@@ -3872,16 +3872,45 @@ module.exports = Airtable;
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _search_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(552);
+
+// EXTERNAL MODULE: ./src/javascripts/search_data.js
+var search_data = __webpack_require__(552);
+;// ./src/images/hobby-card-arrow.svg
+const hobby_card_arrow_namespaceObject = __webpack_require__.p + "images/hobby-card-arrow.svg";
+;// ./src/javascripts/search.js
+
 
 var content;
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_search_data_js__WEBPACK_IMPORTED_MODULE_0__/* .getPostTeasers */ .Q)().then(function (data) {
+  (0,search_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
     console.log(content);
     //createCards(content);
@@ -4053,7 +4082,7 @@ function createCards(content) {
     cardItemDescButton.setAttribute('href', '#');
     cardItemDescButton.innerText = 'смотреть';
     var cardItemDescButtonImg = document.createElement('img');
-    cardItemDescButtonImg.src = '../images/hobby-card-arrow.svg';
+    cardItemDescButtonImg.src = hobby_card_arrow_namespaceObject;
     cardItem.appendChild(cardItemImage);
     cardItem.appendChild(cardItemImage);
     cardItem.appendChild(cardItemDesc);

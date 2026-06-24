@@ -3869,16 +3869,45 @@ module.exports = Airtable;
 /******/ 		__webpack_require__.o = (obj, prop) => (Object.prototype.hasOwnProperty.call(obj, prop))
 /******/ 	})();
 /******/ 	
+/******/ 	/* webpack/runtime/publicPath */
+/******/ 	(() => {
+/******/ 		var scriptUrl;
+/******/ 		if (__webpack_require__.g.importScripts) scriptUrl = __webpack_require__.g.location + "";
+/******/ 		var document = __webpack_require__.g.document;
+/******/ 		if (!scriptUrl && document) {
+/******/ 			if (document.currentScript && document.currentScript.tagName.toUpperCase() === 'SCRIPT')
+/******/ 				scriptUrl = document.currentScript.src;
+/******/ 			if (!scriptUrl) {
+/******/ 				var scripts = document.getElementsByTagName("script");
+/******/ 				if(scripts.length) {
+/******/ 					var i = scripts.length - 1;
+/******/ 					while (i > -1 && (!scriptUrl || !/^http(s?):/.test(scriptUrl))) scriptUrl = scripts[i--].src;
+/******/ 				}
+/******/ 			}
+/******/ 		}
+/******/ 		// When supporting browsers where an automatic publicPath is not supported you must specify an output.publicPath manually via configuration
+/******/ 		// or pass an empty string ("") and set the __webpack_public_path__ variable from your code to use your own logic.
+/******/ 		if (!scriptUrl) throw new Error("Automatic publicPath is not supported in this browser");
+/******/ 		scriptUrl = scriptUrl.replace(/^blob:/, "").replace(/#.*$/, "").replace(/\?.*$/, "").replace(/\/[^\/]+$/, "/");
+/******/ 		__webpack_require__.p = scriptUrl;
+/******/ 	})();
+/******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
 // This entry needs to be wrapped in an IIFE because it needs to be in strict mode.
 (() => {
 "use strict";
-/* harmony import */ var _search_articles_data_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(790);
+
+// EXTERNAL MODULE: ./src/javascripts/search_articles_data.js
+var search_articles_data = __webpack_require__(790);
+;// ./src/images/article-card-arrow.svg
+const article_card_arrow_namespaceObject = __webpack_require__.p + "images/article-card-arrow.svg";
+;// ./src/javascripts/search_articles.js
+
 
 var content;
 document.addEventListener('DOMContentLoaded', function () {
-  (0,_search_articles_data_js__WEBPACK_IMPORTED_MODULE_0__/* .getPostTeasers */ .Q)().then(function (data) {
+  (0,search_articles_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
     console.log(content);
     //createCards(content);
@@ -4004,8 +4033,8 @@ function createCards(content) {
     bg.src = '../images/blue_bg.svg';
     var cardArticleItemImage = document.createElement('div');
     cardArticleItemImage.classList.add('article-card-image');
-    var img = document.createElement('img');
-    img.src = image.url;
+    var cardArticleItemImageImage = document.createElement('img');
+    cardArticleItemImageImage.src = image[0].url;
     var cardArticleItemDesc = document.createElement('div');
     cardArticleItemDesc.classList.add('article-card-desc');
     var cardArticleItemDescH = document.createElement('h3');
@@ -4021,10 +4050,11 @@ function createCards(content) {
     cardArticleItemDescButton.setAttribute('href', '#');
     cardArticleItemDescButton.innerText = 'смотреть';
     var cardArticleItemDescButtonImg = document.createElement('img');
-    cardArticleItemDescButtonImg.src = '../images/hobby-card-arrow.svg';
+    cardArticleItemDescButtonImg.src = './images/article-card-arrow.svg';
     cardArticleItem.appendChild(cardArticleItemImage);
     cardArticleItem.appendChild(cardArticleItemDesc);
     cardArticleItemImage.appendChild(cardArticleItemBg);
+    cardArticleItemImage.appendChild(cardArticleItemImageImage);
     cardArticleItemDesc.appendChild(cardArticleItemDescH);
     cardArticleItemDesc.appendChild(cardArticleItemDescTags);
     cardArticleItemDesc.appendChild(cardArticleItemDescButton);

@@ -2,6 +2,7 @@ import '../stylesheets/style.css'
 import '../stylesheets/style.css'
 import { initHobbySlider } from './hobby_slider.js'
 
+
 // карточки тестов на главной
 const container = document.querySelector('.popular-tests-cards'); 
 const prevBtn = document.getElementById('next');
@@ -77,6 +78,12 @@ burger.addEventListener("click", () => {
 });
 
 initHobbySlider();
+
+document.querySelectorAll('.card-nav').forEach((btn) => {
+  btn.addEventListener('click', () => {
+    window.location.href = btn.dataset.href;
+  });
+});
 
 
 
