@@ -1,52 +1,55 @@
 
 
-/* хедер */
+/* хедер / hero */
 .media-hero {
+  margin-top: 115px;
   background-image: url('../images/hero-about.png');
   background-repeat: no-repeat;
-  background-position: center;
+  background-position: center top;
   background-size: cover;
   height: 1100px;
 }
 
-
 .media-hero__title {
-  font-size: 72px;
-  font-family: var(--header-font);
-  font-weight: 800;
-  color: var(--blue);
-  margin-bottom: 40px;
+  margin-bottom: 50px;
 }
 
 .media-hero__content {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 32px;
   font-family: var(--primary-font);
-  
 }
 
 .media-hero__text {
-  width: 480px;
-  font-size: 18px;
-  line-height: 1.5;
-  color: var(--blue);
+  width: 497px;
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--text-color);
 }
 
 .media-hero__btn {
-  display: inline-block;
-  background: #F05A28;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  font-size: 20px;
+  background: var(--orange);
+  color: var(--bg-color);
+}
+
+.media-hero__btn a {
   color: var(--bg-color);
   text-decoration: none;
-  padding: 12px 20px;
-  border-radius: 10px;
-  font-size: 16px;
-  width: fit-content;
-  transition: 0.2s;
+  font-family: var(--primary-font);
+  font-size: 20px;
 }
 
 
-/* вводный */
+/* вводный блок "для нас главное" */
 .title-section {
   background-color: var(--bg-color);
 
@@ -55,7 +58,7 @@
   background-position: center;
   background-size: contain; 
 
-  padding: 120px 20px;
+  padding: 100px 20px 120px;
 }
 
 .title-container {
@@ -64,33 +67,30 @@
   text-align: center;
 }
 
-.hero-title {
-  font-size: clamp(40px, 5vw, 64px);
+.hero-title-about {
+  text-align: center;
+  font-size: 48px;
   font-family: var(--header-font);
-  font-weight: 1400px;
-  line-height: 1.1;
+  font-weight: 400;
+  line-height: 0.9;
   color: var(--blue);
   letter-spacing: -0.5px; 
-  
 
-  max-width: 1400px;   
-  margin: 0 auto 20px;  
-
-  text-align: center;
-   text-wrap: balance;
+  max-width: 1184px;   
+  margin: 0 auto 24px;  
 }
 
 .hero-sub {
-  font-size: 22px;
-  line-height: 1.5;
+  font-size: 28px;
+  line-height: 1.2;
   font-family: var(--primary-font);
-  color: var(--blue);
-  max-width: 700px;
+  color: var(--text-color);
+  max-width: 519px;
   margin: 0 auto;
 }
 
 
-/* карточки */
+/* карточки-баннеры */
 body {
   background: var(--bg-color);
   color: var(--blue);
@@ -104,71 +104,93 @@ body {
 
 .card {
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-
+ 
+  height: 333px;
   border: 1px solid var(--blue);
   border-radius: 10px;
-
-  padding: 30px;
+  overflow: hidden;
+ 
   margin-bottom: 30px;
   background-color: var(--bg-color);
-
-  gap: 75px;
 }
-
+ 
 .card-content {
-  max-width: 520px;
+  max-width: 600px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .card-content h2 {
-  font-size: 42px;
+  font-size: 48px;
   font-family: var(--header-font);
-  line-height: 1.1;
-  font-weight: 800;
+  line-height: 0.9;
+  font-weight: 400;
   margin: 0 0 20px;
 }
 
 .card-content p {
   font-size: 20px;
   font-family: var(--primary-font);
-  line-height: 1.5;
+  line-height: 1.3;
   color: var(--text-color);
   margin-bottom: 25px;
 }
 
 .btn {
-  background:var(--orange);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  width: 200px;
+  padding: 10px 14px;
+  background: var(--orange);
   color: var(--bg-color);
   border: none;
-  padding: 5px 10px;
   border-radius: 10px;
-  font-size: 14px;
+  font-size: 20px;
+  font-family: var(--primary-font);
   cursor: pointer;
   transition: 0.3s;
 }
 
-.card img {
-  width: 300px;
-  height: 270px;
-  object-fit: cover;
+.card {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-between;
+ 
+  height: 333px;
+  border: 1px solid var(--blue);
   border-radius: 10px;
+  overflow: hidden;
+ 
+  margin-bottom: 30px;
+  background-color: var(--bg-color);
+}
+ 
+.card-content {
+  max-width: 600px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 
-/* иконки */
+/* иконки-фичи */
 .system-section {
   background: var(--bg-color);
   padding: 100px 20px;
 }
 
-
-
 .section-title {
-  font-size: clamp(40px, 5vw, 64px);
+  font-size: 48px;
   font-family: var(--header-font);
-  font-weight: 800;
-  line-height: 1.1;
+  font-weight: 400;
+  line-height: 0.9;
   color: var(--blue);
 
   max-width: 1100px;
@@ -178,15 +200,15 @@ body {
 .feature-grid {
   display: flex;
   justify-content: space-between;
-  gap: 20px;
 }
 
 .feature {
-  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 40px;
 
+  width: 390px;
   text-align: center;
 }
 
@@ -194,42 +216,40 @@ body {
   width: 140px;
   height: 140px;
   object-fit: contain;
-  margin-top: 40px;
-  margin-bottom: 30px;
 }
 
 .feature-desc {
-  font-size: 20px;
-  line-height: 1.4;
-  color: var(--blue);
+  font-size: 28px;
+  line-height: 1.1;
+  color: var(--text-color);
   font-family: var(--primary-font);
-  max-width: 280px;
+  max-width: 380px;
   margin: 0 auto;
 }
 
 
-/* о разделах */
+/* тайлы статей/тестов */
 
-
-/* Заголовок */
+/* Заголовок (общий для "рассказываем о расслаблении" и "команда нетудел") */
 .page-title {
-  font-size: 52px;
+  font-size: 48px;
   font-family: var(--header-font);
-  line-height: 1.1;
+  font-weight: 400;
+  line-height: 0.9;
   margin-bottom: 50px;
   color: var(--blue);
 }
 
-/* Сетка */
+/* Сетка тайлов */
 .tiles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
+  display: flex;
+  gap: 22px;
 }
 
 /* Карточка */
 .tile {
-  height: 320px;
+  width: 385px;
+  height: 326px;
   border-radius: 10px;
   overflow: hidden;
   border: 1px solid var(--blue);
@@ -237,6 +257,7 @@ body {
   flex-direction: column;
   transition: 0.25s;
   background: var(--bg-color);
+  flex-shrink: 0;
 }
 
 .tile:hover {
@@ -245,7 +266,7 @@ body {
 
 /* Картинка */
 .tile__media {
-  height: 200px;
+  height: 206px;
   position: relative;
 }
 
@@ -268,7 +289,7 @@ body {
 
 .tile__title {
   font-family: var(--primary-font);
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 800;
   color: var(--blue);
 }
@@ -295,10 +316,10 @@ body {
 }
 
 
-/* соц сети */
+/* соц сети ("присоединяйся к нам в соцсетях") */
 .socials {
   display: flex;
-  gap: 24px;
+  gap: 44px;
 }
 
 .join-grid {
@@ -306,66 +327,6 @@ body {
   grid-template-columns: 1fr 520px;
   align-items: center;
   font-family: var(--primary-font);
-}
-
-.social {
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  text-decoration: none;
-  color: var(--orange);
-  font-size: 18px;
-}
-
-.social__icon {
-  width: 48px;
-  height: 48px;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: 0.2s;
-}
-
-.join-container{
-  margin-top: 100px;
-}
-
-.join-right {
-  display: flex;
-  justify-content: center;
-}
-
-.join-title {
-  font-size: 64px;
-  font-family: var(--header-font);
-  max-width: 850px;
-  line-height: 0.9;
-  color: #0E5F6B;
-  margin-bottom: 24px;
-}
-
-
-.join-right img {
-  width: 100%;
-  max-width: 480px;
-  border-radius: 16px;
-}
-
-
-.social__icon img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-}
-
-
-
-/* команда */
-.socials {
-  display: flex;
-  gap: 24px;
-  margin-top: 20px;
 }
 
 .social {
@@ -384,6 +345,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: 0.2s;
 }
 
 .social__icon img {
@@ -392,28 +354,84 @@ body {
   object-fit: contain;
 }
 
-/* картинка справа */
+.join-container {
+  margin-top: 100px;
+}
+
+.join-left {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.join-desc {
+  font-family: var(--secondary-font);
+  font-size: 20px;
+  line-height: 1.3;
+  color: var(--text-color);
+  max-width: 353px;
+}
+
+.join-title {
+  font-size: 48px;
+  font-family: var(--header-font);
+  font-weight: 400;
+  max-width: 850px;
+  line-height: 0.9;
+  color: var(--blue);
+  margin-bottom: 24px;
+}
+
+/* три повёрнутых фото справа, как в макете */
 .join-right {
+  position: relative;
   display: flex;
   justify-content: center;
+  height: 320px;
 }
 
-.join-right img {
+.join-photos {
+  position: relative;
   width: 100%;
-  max-width: 480px;
-  border-radius: 16px;
+  height: 100%;
+  top: 82px;
+}
+
+.join-photo {
+  position: absolute;
+  border: 1px solid var(--blue);
+  border-radius: 10px;
+  object-fit: cover;
+}
+
+.join-photo--1 {
+  width: 223px;
+  height: 223px;
+  left: 0;
+  top: 30px;
+  transform: rotate(-11deg);
+}
+
+.join-photo--2 {
+  width: 246px;
+  height: 246px;
+  left: 140px;
+  top: 0;
+  z-index: 3;
+}
+
+.join-photo--3 {
+  width: 223px;
+  height: 223px;
+  left: 340px;
+  top: 30px;
+  transform: rotate(11deg);
 }
 
 
-/* TEAM */
-
-.team{
-  margin-top: 100px ;
-}
-.page-title {
-  font-size: 64px;
-  color: var(--blue);
-  margin-bottom: 50px;
+/* команда */
+.team {
+  margin-top: 100px;
 }
 
 /* сетка */
@@ -433,7 +451,7 @@ body {
 /* фото */
 .team-photo {
   width: 100%;
-  height: 285px;
+  height: 270px;
   object-fit: cover;
   border-radius: 16px;
   margin-bottom: 20px;
@@ -450,6 +468,7 @@ body {
 /* роль */
 .team-role {
   font-family: var(--primary-font);
+  font-size: 20px;
   color: var(--blue);
   margin-bottom: 14px;
 }
@@ -458,19 +477,18 @@ body {
 .team-tg {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 6px;
   color: var(--blue);
   text-decoration: none;
 }
 
 .team-tg img {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
 }
 
 
-/* подписка */
-
+/* подписка — общие .subscribe-section / .subscribe-wrapper стили берутся из index.css, здесь ничего не переопределяем */
 
 
 /* футер */
@@ -509,7 +527,7 @@ body {
 
 .hero-card img {
   width: 100%;
-  height: 320px;
+  height: 316px;
   display: block;
   border-radius: 10px;
   object-fit: cover;

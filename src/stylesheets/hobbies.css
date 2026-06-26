@@ -4,6 +4,7 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-end;
+    margin-top: 115px;
 
     .search {
         display: flex;
@@ -70,13 +71,35 @@
             }
 
             .checkmark {
-                cursor: pointer;
-                width: 24px;
-                height: 24px;
-                background-color: var(--bg-color);
-                border: 1px solid var(--orange);
-                border-radius: 5px;
-            }
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    background-color: var(--bg-color);
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    position: relative;
+}
+
+.checkmark::after {
+    content: '';
+    position: absolute;
+    display: none;
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 11px;
+    border: solid var(--bg-color);
+    border-width: 0 2px 2px 0;
+    transform: rotate(45deg);
+}
+
+input:checked + .checkmark {
+    background-color: var(--orange);
+}
+
+input:checked + .checkmark::after {
+    display: block;
+}
 
             .filter-p {
                 font-family: var(--secondary-font);

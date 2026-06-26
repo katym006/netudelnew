@@ -30,6 +30,7 @@
 }
 
 .hero-section {
+    margin-top: 115px;
     overflow: visible;
     background-image: url('../images/main-bg.jpg');
     background-repeat: no-repeat;
@@ -124,11 +125,37 @@
             border-radius: 10px;
             display: flex;
             flex-direction: column;
+            gap: 15px;
             padding: 20px;
             position: relative;
             z-index: 2;
             margin-top: -43px;
             margin-left: -1px;
+
+            .hobby-of-day-card-desc-head{
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+            }
+
+             .hobby-card-tags {
+            display: flex;
+            justify-content: space-between;
+            color: var(--green);
+            height: 25px;
+
+            .hobby-card-tag {
+                display: flex;
+                gap: 10px;
+                align-items: center;
+                .complexity-icon {
+                    height: 31px;
+                }
+                img{
+                    height: 24px;
+                }
+            }
+        }
             
             h2 {
                 color: var(--green);
