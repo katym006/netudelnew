@@ -53,13 +53,20 @@ function initHobbySlider() {
     setActiveButton(nextBtn);
   });
   catalogBtn.addEventListener('click', function () {
-    goToIndex(TODAY_INDEX);
-    setActiveButton(catalogBtn);
+    if (currentIndex === TODAY_INDEX) {
+      // кнопка в состоянии "в каталог" — переходим на страницу каталога
+      window.location.href = 'hobbies.html';
+    } else {
+      // кнопка в состоянии "сегодняшнее хобби" — просто возвращаем слайдер в центр
+      goToIndex(TODAY_INDEX);
+      setActiveButton(catalogBtn);
+    }
   });
   window.addEventListener('resize', function () {
     return goToIndex(currentIndex);
   });
   goToIndex(currentIndex);
+  setActiveButton(catalogBtn); // фиксируем исходное активное состояние при загрузке
 }
 
 ;// ./src/javascripts/index.js
