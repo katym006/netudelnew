@@ -283,8 +283,10 @@ body {
   padding: 14px;
   background: var(--bg-color);
   display: flex;
+  border-radius: 10px;
   flex-direction: column;
   justify-content: space-between;
+  gap: 15px;
 }
 
 .tile__title {

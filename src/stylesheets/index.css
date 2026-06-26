@@ -184,11 +184,19 @@
             }
 
             .card-btn{
-                display: none;
+            margin-top: 15px;
+            display: flex;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            a {
+                color: var(--green);
+                text-decoration: none;
+            }
+            }
                 transition: all 0.4s ease;
             }
-        }
     }
+    
 
 .hobby-of-day-card:hover {
         
@@ -219,14 +227,7 @@
             }
         }
 
-        .card-btn{
-            margin-top: 15px;
-            display: flex;
-            transition: all 0.4s ease;
-            a {
-                color: var(--green);
-            }
-            }
+        
 
         
     }

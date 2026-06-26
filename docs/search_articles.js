@@ -3907,10 +3907,11 @@ const article_card_arrow_namespaceObject = __webpack_require__.p + "images/artic
 
 var content;
 document.addEventListener('DOMContentLoaded', function () {
+  // если на странице нет контейнера для статей — скрипту тут нечего делать
+  if (!document.querySelector('.S_ArticlesContent')) return;
   (0,search_articles_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
     console.log(content);
-    //createCards(content);
     initSearch();
   });
 });
@@ -3918,6 +3919,7 @@ function initSearch() {
   var A_SearchInput = document.querySelector('.A_SearchInput');
   var A_SearchButton = document.querySelector('.A_SearchButton');
   var A_SearchDelete = document.querySelector('.A_SearchDelete');
+  if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
 
   //Получаем запрос из браузерной строки
   var requestText = getSearchRequest();
@@ -3939,6 +3941,7 @@ function initSearch() {
   A_SearchInput.addEventListener('input', function () {
     requestText = A_SearchInput.value;
     if (requestText.length >= 2) {
+      ёё;
       A_SearchButton.classList.remove('disabled');
       A_SearchDelete.classList.remove('disabled');
     } else {
@@ -3969,7 +3972,9 @@ function initSearch() {
   });
 }
 function searchContent(requestText) {
-  document.querySelector('.S_ArticlesContent').innerHTML = '';
+  var container = document.querySelector('.S_ArticlesContent');
+  if (!container) return;
+  container.innerHTML = '';
   var contentItems = [];
   if (requestText.length >= 2) {
     content.forEach(function (contentItem) {
@@ -4020,6 +4025,9 @@ function getSearchRequest() {
   }
 }
 function createCards(content) {
+  var container = document.querySelector('.S_ArticlesContent');
+  if (!container) return; // защита от падения на страницах без контейнера
+
   content.forEach(function (contentItem) {
     var id = contentItem.id,
       title = contentItem.title,
@@ -4031,6 +4039,7 @@ function createCards(content) {
     cardArticleItemBg.classList.add('blur-bg');
     var bg = document.createElement('img');
     bg.src = '../images/blue_bg.svg';
+    cardArticleItemBg.appendChild(bg);
     var cardArticleItemImage = document.createElement('div');
     cardArticleItemImage.classList.add('article-card-image');
     var cardArticleItemImageImage = document.createElement('img');
@@ -4047,10 +4056,9 @@ function createCards(content) {
     var cardArticleItemDescButton = document.createElement('button');
     cardArticleItemDescButton.classList.add('card-btn');
     cardArticleItemDescButton.classList.add('blue');
-    cardArticleItemDescButton.setAttribute('href', '#');
     cardArticleItemDescButton.innerText = 'смотреть';
     var cardArticleItemDescButtonImg = document.createElement('img');
-    cardArticleItemDescButtonImg.src = './images/article-card-arrow.svg';
+    cardArticleItemDescButtonImg.src = article_card_arrow_namespaceObject;
     cardArticleItem.appendChild(cardArticleItemImage);
     cardArticleItem.appendChild(cardArticleItemDesc);
     cardArticleItemImage.appendChild(cardArticleItemBg);
