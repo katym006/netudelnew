@@ -13,7 +13,9 @@ module.exports = {
     search: './src/javascripts/search.js',
     search_articles: './src/javascripts/search_articles.js',
     search_articles_data: './src/javascripts/search_articles_data.js',
-    accordion: './src/javascripts/accordion.js'
+    accordion: './src/javascripts/accordion.js',
+    checklist: './src/javascripts/checklist.js',
+
   },
   output: {
     filename: '[name].js',

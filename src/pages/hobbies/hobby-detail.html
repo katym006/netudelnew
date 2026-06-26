@@ -28,7 +28,7 @@
     </div>
 
     <div class="breadcrumbs container">
-        <a href="index.html" class="p2">Главная</a> / Каталог хобби
+        <a href="index.html" class="p2">Главная</a> /  <a href="hobbies.html" class="p2">Каталог хобби</a>
     </div>
 
     <div class="hobby-page-header container">
@@ -151,7 +151,7 @@
                 <h2 class="h2">эбру:</h2>
                 <p class="p1">Всё, что нужно для занятия, в одном файле</p>
                 <div class="promo-banner-card-buttons">
-                    <button class="primary medium"><a href="#">чеклист для хобби</a></button>
+                     <button class="primary medium checklist-open-btn" type="button"><a href="#">чеклист для хобби</a></button>
                     <button class="primary medium"><a href="#">скачать инструкцию</a></button>
                 </div>
             </div>
@@ -162,17 +162,19 @@
         </div>
     </section>
 
-    <section class="master-class container">
-        <h1 class="h1">мастер-класс</h1>
-        <p class="p1">Создайте свой первый шедевр с помощью профессионального подхода мастера</p>
-
-        <div class="master-class-video">
-            <img src="../../images/ebru-video-picture.png" alt="видео мастер-класс эбру">
-            <button class="master-class-play" type="button" aria-label="смотреть видео">
-                <img src="../../images/video-play-icon.svg" alt="">
-            </button>
-        </div>
-    </section>
+<section class="master-class container">
+    <h1 class="h1">мастер-класс</h1>
+    <p class="p1">Создайте свой первый шедевр с помощью профессионального подхода мастера</p>
+ 
+    <div class="master-class-video">
+        <iframe
+            src="https://rutube.ru/play/embed/6777bd2adb4bb01b987110db3e434547/"
+            style="border: none;"
+            allow="clipboard-write; autoplay"
+            allowfullscreen
+        ></iframe>
+    </div>
+</section>
 
     <div class="footer-hero footer-green">
         <div class="container">
@@ -196,6 +198,14 @@
           <div class="footer-copy"> 2026 © Нетудел. Все права защищены </div>
         </div>
         <div class="footer-bg-text">нетудел</div>
+    </div>
+
+     <div class="checklist-modal" id="checklistModal">
+        <div class="checklist-modal-overlay"></div>
+        <div class="checklist-modal-content">
+            <button class="checklist-modal-close" type="button" aria-label="закрыть">&times;</button>
+            <img src="../../images/ebru-checklist-full.png" alt="чек-лист для эбру">
+        </div>
     </div>
 
 </body>
