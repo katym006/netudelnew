@@ -42,6 +42,111 @@ function getPostTeasers() {
 
 /***/ }),
 
+/***/ 625:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   l: () => (/* binding */ setCardFilterData),
+/* harmony export */   q: () => (/* binding */ initHobbyFilters)
+/* harmony export */ });
+function _toConsumableArray(r) { return _arrayWithoutHoles(r) || _iterableToArray(r) || _unsupportedIterableToArray(r) || _nonIterableSpread(); }
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+function _unsupportedIterableToArray(r, a) { if (r) { if ("string" == typeof r) return _arrayLikeToArray(r, a); var t = {}.toString.call(r).slice(8, -1); return "Object" === t && r.constructor && (t = r.constructor.name), "Map" === t || "Set" === t ? Array.from(r) : "Arguments" === t || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(t) ? _arrayLikeToArray(r, a) : void 0; } }
+function _iterableToArray(r) { if ("undefined" != typeof Symbol && null != r[Symbol.iterator] || null != r["@@iterator"]) return Array.from(r); }
+function _arrayWithoutHoles(r) { if (Array.isArray(r)) return _arrayLikeToArray(r); }
+function _arrayLikeToArray(r, a) { (null == a || a > r.length) && (a = r.length); for (var e = 0, n = Array(a); e < a; e++) n[e] = r[e]; return n; }
+// src/javascripts/hobby_filters.js
+
+var TIME_GROUP_SELECTOR = '.hobby-filters-wrapper:nth-of-type(1) input[type="checkbox"]';
+var PRICE_GROUP_SELECTOR = '.hobby-filters-wrapper:nth-of-type(2) input[type="checkbox"]';
+var LEVEL_GROUP_SELECTOR = '.hobby-filters-wrapper:nth-of-type(3) input[type="checkbox"]';
+function normalize(str) {
+  return (str || '').toString().trim().toLowerCase();
+}
+
+// Приводим текстовые значения из Airtable к значениям value у чекбоксов
+function mapTimeToFilterValue(time) {
+  var t = normalize(time);
+  if (t.includes('30') && t.includes('60')) return '30-60';
+  if (t.includes('1') && t.includes('2')) return '1-2';
+  if (t.includes('3') && t.includes('4')) return '3-4';
+  return '';
+}
+function mapCostToFilterValue(cost) {
+  var c = normalize(cost);
+  if (c.includes('бесплат')) return 'free';
+  if (c.includes('от')) return '1000plus';
+  if (c.includes('до')) return '1000';
+  return '';
+}
+function mapComplexityToFilterValue(complexity) {
+  var l = normalize(complexity);
+  if (l.includes('легк')) return 'easy';
+  if (l.includes('средн')) return 'medium';
+  if (l.includes('сложн')) return 'hard';
+  return '';
+}
+
+// Вызывается при создании карточки (в hobby_card.js и search.js)
+function setCardFilterData(cardEl) {
+  var _ref = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {},
+    time = _ref.time,
+    cost = _ref.cost,
+    complexity = _ref.complexity;
+  cardEl.dataset.time = mapTimeToFilterValue(time);
+  cardEl.dataset.price = mapCostToFilterValue(cost);
+  cardEl.dataset.level = mapComplexityToFilterValue(complexity);
+}
+
+// containerSelector / cardSelector — чтобы можно было переиспользовать на разных страницах
+function initHobbyFilters() {
+  var containerSelector = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : '.S_Content';
+  var cardSelector = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : '.hobby-card';
+  var container = document.querySelector(containerSelector);
+  var timeCheckboxes = document.querySelectorAll(TIME_GROUP_SELECTOR);
+  var priceCheckboxes = document.querySelectorAll(PRICE_GROUP_SELECTOR);
+  var levelCheckboxes = document.querySelectorAll(LEVEL_GROUP_SELECTOR);
+  if (!container) {
+    // На этой странице нет динамического контейнера карточек
+    // (например, hobbies.html — там своя статичная вёрстка и свой скрипт).
+    // Возвращаем no-op, чтобы не падать и не мешать остальному коду.
+    return function () {};
+  }
+  function applyFilters() {
+    var selectedTimes = Array.from(timeCheckboxes).filter(function (c) {
+      return c.checked;
+    }).map(function (c) {
+      return c.value;
+    });
+    var selectedPrices = Array.from(priceCheckboxes).filter(function (c) {
+      return c.checked;
+    }).map(function (c) {
+      return c.value;
+    });
+    var selectedLevels = Array.from(levelCheckboxes).filter(function (c) {
+      return c.checked;
+    }).map(function (c) {
+      return c.value;
+    });
+    var cards = Array.from(container.querySelectorAll(cardSelector));
+    cards.forEach(function (card) {
+      var timeMatch = selectedTimes.length === 0 || selectedTimes.includes(card.dataset.time);
+      var priceMatch = selectedPrices.length === 0 || selectedPrices.includes(card.dataset.price);
+      var levelMatch = selectedLevels.length === 0 || selectedLevels.includes(card.dataset.level);
+      card.classList.toggle('hobby-card-hidden', !(timeMatch && priceMatch && levelMatch));
+    });
+  }
+  [].concat(_toConsumableArray(timeCheckboxes), _toConsumableArray(priceCheckboxes), _toConsumableArray(levelCheckboxes)).forEach(function (checkbox) {
+    checkbox.addEventListener('change', applyFilters);
+  });
+  applyFilters();
+  return applyFilters;
+}
+
+
+/***/ }),
+
 /***/ 997:
 /***/ ((module, __unused_webpack_exports, __webpack_require__) => {
 
@@ -3905,11 +4010,17 @@ var __webpack_exports__ = {};
 var search_data = __webpack_require__(552);
 ;// ./src/images/hobby-card-arrow.svg
 const hobby_card_arrow_namespaceObject = __webpack_require__.p + "images/hobby-card-arrow.svg";
+// EXTERNAL MODULE: ./src/javascripts/hobby_filters.js
+var hobby_filters = __webpack_require__(625);
 ;// ./src/javascripts/search.js
 
 
+
 var content;
+var applyFilters = function applyFilters() {};
 document.addEventListener('DOMContentLoaded', function () {
+  applyFilters = (0,hobby_filters/* initHobbyFilters */.q)(); // фильтры на странице поиска
+
   (0,search_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
     console.log(content);
@@ -3988,11 +4099,6 @@ function searchContent(requestText) {
       title = title.toLowerCase();
       title = title.replaceAll(nbspRegEx, ' ');
       title = title.replaceAll(punctuationRegEx, '');
-
-      // description = description.toLowerCase();
-      // description = description.replaceAll(nbspRegEx, ' ');
-      // description = description.replaceAll(punctuationRegEx, '');
-
       requestText = requestText.toLowerCase();
       if (title.includes(requestText)) {
         contentItems.push(contentItem);
@@ -4004,7 +4110,6 @@ function searchContent(requestText) {
       document.querySelector('.S_Content').innerText = 'Ничего не найдено!';
     } else {
       createCards(contentItems);
-      //setCardsByIds(contentItemsId);
     }
   } else {
     deleteSearchRequest();
@@ -4025,17 +4130,6 @@ function getSearchRequest() {
     return searchParams.get('request');
   }
 }
-
-/* function setCardsByIds(contentItemsId) {
-    contentItemsId.forEach((id) => {
-        content.forEach((contentItem) => {
-            if (id === contentItem.id) {
-                createCard(contentItem);
-            }
-        })
-    })
-} */
-
 function createCards(content) {
   content.forEach(function (contentItem) {
     var id = contentItem.id,
@@ -4047,6 +4141,11 @@ function createCards(content) {
       desc = contentItem.desc;
     var cardItem = document.createElement('div');
     cardItem.classList.add('hobby-card');
+    (0,hobby_filters/* setCardFilterData */.l)(cardItem, {
+      time: time,
+      cost: cost,
+      complexity: complexity
+    });
     var cardItemImage = document.createElement('div');
     cardItemImage.classList.add('hobby-card-image');
     var img = document.createElement('img');
@@ -4098,6 +4197,7 @@ function createCards(content) {
     cardItemDescButton.appendChild(cardItemDescButtonImg);
     document.querySelector('.S_Content').appendChild(cardItem);
   });
+  applyFilters();
 }
 })();
 

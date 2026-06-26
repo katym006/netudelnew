@@ -17,7 +17,7 @@ const htmlPages = [
   createPages('./src/pages/articles/article.html', './article.html', ['index']),
   createPages('./src/pages/about.html', './about.html', ['index']),  
   createPages('./src/pages/search.html', './search.html', ['index', 'search', 'search_data']),
-  createPages('./src/pages/articles.html', './articles.html', ['index', 'search_articles', 'search_articles_data']),
+  createPages('./src/pages/articles.html', './articles.html', ['index', 'search_articles', 'search_articles_data', 'articles']),
   createPages('./src/pages/articles-search.html', './articles-search.html', ['index', 'search_articles', 'search_articles_data']),
   createPages('./src/pages/hobbies/hobby-detail.html', './hobby-detail.html', ['index', 'accordion', 'checklist']),
   

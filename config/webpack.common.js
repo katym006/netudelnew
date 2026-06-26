@@ -18,6 +18,7 @@ module.exports = {
     hobbies: './src/javascripts/hobbies.js',
     hobby_filters: './src/javascripts/hobby_filters.js',
     hobby_card: './src/javascripts/hobby_card.js',
+    articles: './src/javascripts/articles.js',
   },
   output: {
     filename: '[name].js',
