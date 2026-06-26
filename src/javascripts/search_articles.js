@@ -4,10 +4,12 @@ import articleArrowSvg from '../images/article-card-arrow.svg'
 let content
 
 document.addEventListener('DOMContentLoaded', () => {
+    // если на странице нет контейнера для статей — скрипту тут нечего делать
+    if (!document.querySelector('.S_ArticlesContent')) return;
+
     getPostTeasers().then((data) => {
         content = data;
         console.log(content)
-        //createCards(content);
         initSearch();
     });
 })
@@ -16,6 +18,8 @@ function initSearch() {
     const A_SearchInput = document.querySelector('.A_SearchInput');
     const A_SearchButton = document.querySelector('.A_SearchButton');
     const A_SearchDelete = document.querySelector('.A_SearchDelete');
+
+    if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
 
     //Получаем запрос из браузерной строки
     let requestText = getSearchRequest();
@@ -39,7 +43,7 @@ function initSearch() {
     //Проверка на ввод текст в Инпуте
     A_SearchInput.addEventListener('input', () => {
         requestText = A_SearchInput.value;
-        if (requestText.length >= 2) {
+        if (requestText.length >= 2) {ёё
             A_SearchButton.classList.remove('disabled');
             A_SearchDelete.classList.remove('disabled');
         }
@@ -73,7 +77,10 @@ function initSearch() {
 }
 
 function searchContent (requestText) {
-    document.querySelector('.S_ArticlesContent').innerHTML = '';
+    const container = document.querySelector('.S_ArticlesContent');
+    if (!container) return;
+    container.innerHTML = '';
+
     const contentItems = [];
     if (requestText.length >= 2) {
         content.forEach((contentItem) => {
@@ -132,6 +139,9 @@ function getSearchRequest () {
 
 
 function createCards(content) {
+    const container = document.querySelector('.S_ArticlesContent');
+    if (!container) return; // защита от падения на страницах без контейнера
+
     content.forEach((contentItem) => {
         let {id, title, tags, image} = contentItem;
 
@@ -142,6 +152,7 @@ function createCards(content) {
         cardArticleItemBg.classList.add('blur-bg')
         const bg = document.createElement('img')
         bg.src = '../images/blue_bg.svg'
+        cardArticleItemBg.appendChild(bg);
 
 
         const cardArticleItemImage = document.createElement('div');
@@ -163,13 +174,12 @@ function createCards(content) {
         cardArticleItemDescTags.innerText = tags
 
 
-        const cardArticleItemDescButton = document.createElement('button')
+         const cardArticleItemDescButton = document.createElement('button')
         cardArticleItemDescButton.classList.add('card-btn')
         cardArticleItemDescButton.classList.add('blue')
-        cardArticleItemDescButton.setAttribute('href', '#');
         cardArticleItemDescButton.innerText = 'смотреть'
         const cardArticleItemDescButtonImg = document.createElement('img')
-        cardArticleItemDescButtonImg.src = './images/article-card-arrow.svg'
+        cardArticleItemDescButtonImg.src = articleArrowSvg
 
         cardArticleItem.appendChild(cardArticleItemImage)
         cardArticleItem.appendChild(cardArticleItemDesc)

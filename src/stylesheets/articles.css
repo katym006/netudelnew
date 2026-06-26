@@ -4,6 +4,9 @@
     border: 1px solid var(--blue);
     border-radius: 10px;
     overflow: hidden;
+    display: block;
+    text-decoration: none;
+    color: inherit;
 }
 
 .article-card-image {
@@ -86,3 +89,181 @@
     margin-top: 50px;
 }
 
+
+/* =====================================================
+   каталог статей (articles.html) — фильтр-теги
+   размеры/отступы взяты из макета Figma:
+   gap 8px, padding 5px, текст 16px
+===================================================== */
+
+.article-filter-tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 8px;
+    margin-top: 70px;
+    margin-bottom: 50px;
+}
+
+.filter-tag {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    border: 0;
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    color: var(--blue);
+    font-family: var(--primary-font);
+    font-size: 16px;
+    line-height: 100%;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.filter-tag.active,
+.filter-tag:hover {
+    background-color: var(--blue);
+    color: var(--bg-color);
+}
+
+
+.article-catalog {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.article-catalog-line {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+/* декоративные пятна-заливки позади карточек */
+.article-decor {
+    position: relative;
+    z-index: -1;
+    flex-shrink: 0;
+    align-self: center;
+}
+
+.article-decor img {
+    display: block;
+}
+
+.article-decor--1 {
+    width: 293px;
+    height: 295px;
+    margin: 0 -70px;
+}
+
+.article-decor--1 img {
+    width: 293px;
+    height: 295px;
+}
+
+.article-decor--2 {
+    width: 285px;
+    height: 325px;
+    margin-right: -150px;
+}
+
+.article-decor--2 img {
+    width: 285px;
+    height: 325px;
+}
+
+
+/* =====================================================
+   баннер события "антистресс-вечер"
+   точные размеры из макета: высота 243px, текстовый блок 746px,
+   кнопка primary medium (200x40), заголовок — класс .h2
+===================================================== */
+
+.event-banner {
+    width: 100%;
+    height: 243px;
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    border: 1px solid var(--blue);
+    border-radius: 10px;
+    background-color: var(--bg-color);
+    overflow: hidden;
+    padding: 0 20px;
+}
+
+.event-banner-content {
+    width: 746px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 20px 0;
+}
+
+.event-banner-label {
+    color: var(--blue);
+}
+
+.event-banner-image {
+    position: relative;
+    flex: 1;
+    margin: 0 -20px;
+    overflow: hidden;
+}
+
+.event-banner-image img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 20%;
+    border-radius: 10px;
+}
+
+
+/* =====================================================
+   адаптив для каталога статей
+===================================================== */
+
+@media (max-width: 1024px) {
+    .event-banner {
+        height: auto;
+        flex-direction: column;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .event-banner-content {
+        width: 100%;
+        padding: 0;
+    }
+
+    .event-banner-image {
+        width: 100%;
+        height: 220px;
+        margin: 0 -20px -20px;
+    }
+
+    .article-decor {
+        display: none;
+    }
+}
+
+@media (max-width: 375px) {
+    .article-filter-tags {
+        margin-top: 30px;
+        margin-bottom: 30px;
+        gap: 6px;
+    }
+
+    .article-catalog-line {
+        gap: 12px;
+    }
+}

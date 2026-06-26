@@ -1,33 +1,186 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>все статьи — нетудел</title>
     <link rel="icon" href="../images/icon.ico">
 </head>
 <body>
     <div class="header">
-  <div class="header-wrapper container">
-    <div class="header-logo"><a href="index.html"><img src='../images/header-logo.svg'></a></div>
-    <div class="header-menu">
-      <ul>
-          <li><a href="hobbies.html">каталог хобби</a></li>
-          <li><a href="articles-search.html">статьи</a></li>
-          <li><a href="tests.html">тесты</a></li>
-          <li><a href="about.html">о медиа</a></li>
-      </ul>
+        <div class="header-wrapper container">
+            <div class="header-logo"><a href="index.html"><img src='../images/header-logo.svg'></a></div>
+            <div class="header-menu">
+                <ul>
+                    <li><a href="hobbies.html">каталог хобби</a></li>
+                    <li><a href="articles.html">статьи</a></li>
+                    <li><a href="tests.html">тесты</a></li>
+                    <li><a href="about.html">о медиа</a></li>
+                </ul>
+            </div>
+            <div class="burger" id="burger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
-<div class="hobby-header container">
-    <h1 class="h1">все статьи</h1>
-    <div class="search">
-        <input type="text" placeholder="почему отдых вызывает чувство вины">
-        <span class="search-icon"><img src="../images/search_icon.svg"></span>
+    <div class="hobby-header container">
+        <h1 class="h1">все статьи</h1>
+        <div class="search">
+            <input type="text" placeholder="почему отдых вызывает чувство вины">
+            <span class="search-icon"><img src="../images/search_icon.svg"></span>
+        </div>
     </div>
-</div>
-    
+
+    <div class="container">
+        <div class="article-filter-tags">
+            <button class="filter-tag active" type="button">все</button>
+            <button class="filter-tag" type="button">#психология</button>
+            <button class="filter-tag" type="button">#рисование</button>
+            <button class="filter-tag" type="button">#игры</button>
+            <button class="filter-tag" type="button">#музыка</button>
+            <button class="filter-tag" type="button">#мероприятия</button>
+            <button class="filter-tag" type="button">#подборки</button>
+            <button class="filter-tag" type="button">#наука</button>
+            <button class="filter-tag" type="button">#хендмейд</button>
+        </div>
+
+        <div class="article-catalog">
+
+            <div class="article-catalog-line">
+
+                <a href="#" class="article-card">
+                    <div class="article-card-image">
+                        <div class="blur-bg"><img src="../images/blue_bg.svg"></div>
+                        <img src="../images/article-vina-hero.jpg" alt="почему отдых вызывает чувство вины">
+                    </div>
+                    <div class="article-card-desc">
+                        <h3 class="h3">почему отдых вызывает<br>чувство вины</h3>
+                        <div class="article-card-tags p2">
+                            <div class="article-card-tag">#наука</div>
+                            <div class="article-card-tag">#психология</div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="banner-ads green">
+                    <p class="p1">может быть интересно…</p>
+                    <p class="h3 green">простой способ<br>альтернативной<br>печати — цианотипия</p>
+                    <button class="card-btn"><a href="#">попробовать</a><img src="../images/banner-ads-arrow-green.svg"></button>
+                </div>
+
+                <div class="article-decor article-decor--1"><img src="../images/tests-big-icon-1.png" alt=""></div>
+
+                <a href="#" class="article-card">
+                    <div class="article-card-image">
+                        <div class="blur-bg"><img src="../images/blue_bg.svg"></div>
+                        <img src="../images/article-hobby-picture.png" alt="как хобби помогает при выгорании">
+                    </div>
+                    <div class="article-card-desc">
+                        <h3 class="h3">как хобби<br>помогает<br>при выгорании</h3>
+                        <div class="article-card-tags p2">
+                            <div class="article-card-tag">#рисование</div>
+                            <div class="article-card-tag">#наука</div>
+                        </div>
+                    </div>
+                </a>
+
+            </div>
+
+            <div class="event-banner">
+                <div class="event-banner-content">
+                    <p class="p1 event-banner-label">новое событие</p>
+                    <h2 class="h2">антистресс-вечер<br>как это проходило?</h2>
+                    <button class="primary medium"><a href="#">читать статью</a></button>
+                </div>
+                <div class="event-banner-image">
+                    <img src="../images/article-antistress-evening-picture.png" alt="антистресс-вечер как это проходило?">
+                </div>
+            </div>
+
+            <div class="article-catalog-line">
+
+                <a href="#" class="article-card">
+                    <div class="article-card-image">
+                        <div class="blur-bg"><img src="../images/blue_bg.svg"></div>
+                        <img src="../images/article-hobby-routine-picture.png" alt="как увлечение поможет при выгорании">
+                    </div>
+                    <div class="article-card-desc">
+                        <h3 class="h3">как увлечение<br>поможет<br>при выгорании</h3>
+                        <div class="article-card-tags p2">
+                            <div class="article-card-tag">#рисование</div>
+                            <div class="article-card-tag">#психология</div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="article-decor article-decor--2"><img src="../images/tests-big-icon-2.png" alt=""></div>
+
+                <a href="#" class="article-card">
+                    <div class="article-card-image">
+                        <div class="blur-bg"><img src="../images/blue_bg.svg"></div>
+                        <img src="../images/article-handmade-picture.png" alt="почему люди выбирают ручной труд">
+                    </div>
+                    <div class="article-card-desc">
+                        <h3 class="h3">почему люди выбирают<br>ручной труд</h3>
+                        <div class="article-card-tags p2">
+                            <div class="article-card-tag">#хендмейд</div>
+                            <div class="article-card-tag">#психология</div>
+                        </div>
+                    </div>
+                </a>
+
+                <div class="banner-ads orange">
+                    <p class="p1">может быть интересно…</p>
+                    <p class="h3">проверь себя<br>на устойчивость<br>к цифровому перегрузу</p>
+                    <button class="card-btn"><a href="test_your_character.html">пройти тест</a><img src="../images/banner-ads-arrow-orange.svg"></button>
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+
+    <div class="subscribe-section">
+        <div class="subscribe container">
+            <h2 class="h2">Подпишитесь на полезную информацию и комфортное комьюнити</h2>
+            <div class="subscribe-wrapper">
+                <div class="subscribe-row">
+                    <div class="subscribe-row-label p1">Введите ваш email</div>
+                    <div class="subscribe-row-wrapper">
+                        <input type="email" placeholder="yahochuspat@gmail.com" class="subscribe-input">
+                        <button class="primary large"><a href="#">подписаться</a></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-hero blue-footer">
+        <div class="container">
+            <div class="footer-nav">
+                <a href="about.html">о нас</a>
+                <a href="articles.html">статьи</a>
+                <a href="hobbies.html">каталог хобби</a>
+                <a href="tests.html">тесты</a>
+            </div>
+            <div class="hero-card"><img src='../images/footer-img-1.jpg'></div>
+        </div>
+
+        <div class="footer-contacts">
+            <a href='https://t.me/netu_del'>Телеграм</a>
+            <a href='https://vk.com/club234853735'>Вконтакте</a>
+            <div>netudel@mail.com</div>
+        </div>
+
+        <div class="footer-info container">
+            <div class="footer-policy"> соглашение и политика конфиденциальности </div>
+            <div class="footer-copy"> 2026 © Нетудел. Все права защищены </div>
+        </div>
+        <div class="footer-bg-text">нетудел</div>
+    </div>
+
 </body>
 </html>
