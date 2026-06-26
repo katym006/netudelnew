@@ -1,9 +1,13 @@
 import {getPostTeasers} from './search_data.js'
 import arrowSvg from '../images/hobby-card-arrow.svg';
+import { initHobbyFilters, setCardFilterData } from './hobby_filters.js';
 
-let content
+let content;
+let applyFilters = () => {};
 
 document.addEventListener('DOMContentLoaded', () => {
+    applyFilters = initHobbyFilters(); // фильтры на странице поиска
+
     getPostTeasers().then((data) => {
         content = data;
         console.log(content)
@@ -85,10 +89,6 @@ function searchContent (requestText) {
             title = title.replaceAll(nbspRegEx, ' ');
             title = title.replaceAll(punctuationRegEx, '');
 
-            // description = description.toLowerCase();
-            // description = description.replaceAll(nbspRegEx, ' ');
-            // description = description.replaceAll(punctuationRegEx, '');
-
             requestText = requestText.toLowerCase();
 
             if (title.includes(requestText)) {
@@ -102,7 +102,6 @@ function searchContent (requestText) {
         }
         else {
             createCards(contentItems);
-            //setCardsByIds(contentItemsId);
         }
     }
     else {
@@ -128,25 +127,13 @@ function getSearchRequest () {
     }
 }
 
-/* function setCardsByIds(contentItemsId) {
-    contentItemsId.forEach((id) => {
-        content.forEach((contentItem) => {
-            if (id === contentItem.id) {
-                createCard(contentItem);
-            }
-        })
-    })
-} */
-
-
-
 function createCards(content) {
     content.forEach((contentItem) => {
         let {id, title, time, cost, complexity, image, desc} = contentItem;
 
         const cardItem = document.createElement('div');
         cardItem.classList.add('hobby-card');
-
+        setCardFilterData(cardItem, { time, cost, complexity });
 
         const cardItemImage = document.createElement('div');
         cardItemImage.classList.add('hobby-card-image');
@@ -156,7 +143,6 @@ function createCards(content) {
         const cardItemBg = document.createElement('div');
         cardItemBg.classList.add('blur-bg')
         cardItemBg.innerText = '.'
-
 
         const cardItemDesc = document.createElement('div');
         cardItemDesc.classList.add('hobby-card-desc')
@@ -195,7 +181,6 @@ function createCards(content) {
         const cardItemDescButtonImg = document.createElement('img')
         cardItemDescButtonImg.src = arrowSvg
 
-
         cardItem.appendChild(cardItemImage);
         cardItem.appendChild(cardItemImage);
         cardItem.appendChild(cardItemDesc);
@@ -214,12 +199,8 @@ function createCards(content) {
         cardItemDesc.appendChild(cardItemDescButton)
         cardItemDescButton.appendChild(cardItemDescButtonImg)
 
-        
-
         document.querySelector('.S_Content').appendChild(cardItem);
     })
+
+    applyFilters();
 }
-
-
-
-

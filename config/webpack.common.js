@@ -15,7 +15,9 @@ module.exports = {
     search_articles_data: './src/javascripts/search_articles_data.js',
     accordion: './src/javascripts/accordion.js',
     checklist: './src/javascripts/checklist.js',
-
+    hobbies: './src/javascripts/hobbies.js',
+    hobby_filters: './src/javascripts/hobby_filters.js',
+    hobby_card: './src/javascripts/hobby_card.js',
   },
   output: {
     filename: '[name].js',

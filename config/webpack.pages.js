@@ -10,7 +10,7 @@ function createPages(template, filename, chunks) {
 
 const htmlPages = [
   createPages('./src/index.html', './index.html', ['index']),
-  createPages('./src/pages/hobbies.html', './hobbies.html', ['index']),
+  createPages('./src/pages/hobbies.html', './hobbies.html', ['index', 'hobbies', 'hobby_filters', 'hobby_card']),
   createPages('./src/pages/tests.html', './tests.html', ['index']),
   createPages('./src/pages/tests/test_your_character.html', './test_your_character.html', ['index']),
   createPages('./src/pages/tests/test_result.html', './test_result.html', ['index']),
@@ -20,6 +20,7 @@ const htmlPages = [
   createPages('./src/pages/articles.html', './articles.html', ['index', 'search_articles', 'search_articles_data']),
   createPages('./src/pages/articles-search.html', './articles-search.html', ['index', 'search_articles', 'search_articles_data']),
   createPages('./src/pages/hobbies/hobby-detail.html', './hobby-detail.html', ['index', 'accordion', 'checklist']),
+  
 
 ]
 

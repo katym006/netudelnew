@@ -1,3 +1,6 @@
+.hobby-card-hidden {
+    display: none;
+}
 
 
 .hobby-header {
@@ -159,7 +162,7 @@ input:checked + .checkmark::after {
         position: relative;
         z-index: 2;
         margin-top: -26px;
-        gap: 15px;
+        gap: 18px;
         transition: all 0.4s ease;
         h3 {
             color: var(--green);
@@ -203,8 +206,10 @@ input:checked + .checkmark::after {
     gap: 50px;
     .hobby-catalog-line {
         display: flex;
-        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
     }
+
 
     .long-banner{
         height: 243px;
