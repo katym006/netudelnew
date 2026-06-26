@@ -1,46 +1,4 @@
 
-
-.hobby-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-end;
-
-    .search {
-        display: flex;
-        justify-content: space-between;
-        padding: 5px 10px;
-        align-items: center;
-        border: 1px solid var(--blue);
-        border-radius: 10px;
-        width: 280px;
-        height: 36px;
-
-        input {
-            background-color: var(--bg-color);
-            outline: none;
-            border: 0;
-            width: 100%;
-            height: 100%;
-        }
-        input::placeholder {
-            color: var(--blue);
-            opacity: 50%;
-            font-family: var(--primary-font);
-            font-size: 16px;
-        }
-        input:focus {
-            font-family: var(--primary-font);
-            font-size: 16px;
-            color: var(--blue);
-            }
-            input:not(:placeholder-shown) {
-                font-family: var(--primary-font);
-                font-size: 16px;
-                color: var(--blue);
-            }
-    }
-}
-
 .test-card {
                 .test-card-image {
                     transition: all 0.4s ease;

@@ -378,7 +378,7 @@ body {
 
 /* ТАБЛЕТ */
 
-@media (max-width: 1024px) (min-width: 376px){
+@media (max-width: 1024px) and (min-width: 376px){
   .container{
     max-width: 884px;
     
