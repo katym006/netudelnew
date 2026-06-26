@@ -58,6 +58,7 @@
 }
 
 .statistic {
+    margin-top: 40px;
     display: flex;
     margin-top: 12px;
     justify-content: space-between;
