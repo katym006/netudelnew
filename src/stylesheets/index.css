@@ -58,7 +58,7 @@
 }
 
 .statistic {
-    margin-top: 40px;
+    padding-top: 40px;
     display: flex;
     margin-top: 12px;
     justify-content: space-between;
@@ -118,9 +118,15 @@
             }
         }
 
+        .hobby-of-day-card-image {
+            object-fit: cover;
+            border-radius: 10px;
+ 
+        }
+
         .hobby-of-day-card-desc {
             transition: all 0.4s ease;
-            height: 122px;
+            height: 205px;
             width: 590px ;
             background-color: var(--bg-color);
             border-radius: 10px;
@@ -137,9 +143,13 @@
                 display: flex;
                 flex-direction: column;
                 gap: 8px;
+                p{
+                    margin-bottom: 15px;
+                }
             }
 
              .hobby-card-tags {
+            width: 346px;
             display: flex;
             justify-content: space-between;
             color: var(--green);
@@ -173,7 +183,7 @@
                 transition: all 0.4s ease;
             }
 
-            button {
+            .card-btn{
                 display: none;
                 transition: all 0.4s ease;
             }
@@ -190,9 +200,10 @@
                 opacity: 0.6;
             }
         }
+
         .hobby-of-day-card-desc {
             height: 205px;
-            margin-top: -125px;
+            margin-top: -140px;
             transition: all 0.4s ease;
         }
         .hobby-of-day-card-desc-icons{
@@ -208,14 +219,16 @@
             }
         }
 
-        button {
+        .card-btn{
             margin-top: 15px;
             display: flex;
             transition: all 0.4s ease;
             a {
                 color: var(--green);
             }
-        }
+            }
+
+        
     }
 
 

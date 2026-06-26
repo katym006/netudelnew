@@ -336,7 +336,11 @@ body {
   display: flex;
   justify-content: space-between;
   margin: 0 auto 40px;
+  font-size: 24px;
+  font-family: var(--primary-font);
+  color: var(--bg-color);
   a {
+  color: inherit;
   cursor: pointer;
   text-decoration: none;
   font-size: 24px;
@@ -344,10 +348,6 @@ body {
   color: var(--bg-color);}
 }
 
-.footer-contacts a {
-  color: inherit;
-  text-decoration: none;
-}
 
 .footer-info {
   display: flex;
@@ -374,16 +374,63 @@ body {
   font-size: 245px;   
   color: var(--bg-color);                       
   pointer-events: none;
-  padding-left: 40px;
 }
 
 /* ТАБЛЕТ */
 
-@media (max-width: 1024px){
+@media (max-width: 1024px) (min-width: 376px){
   .container{
     max-width: 884px;
+    
+
+  .footer-hero{
+        padding:40px 0 80px;
+    .container{
+      
+    max-width: 884px;
+    padding:0 40px;
+    
+    .footer-nav{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        gap:30px;
+        margin-bottom:40px;
+    }
+
+    .footer-nav a{
+        font-size:18px;
+    }
+
+    .hero-card{
+        margin-bottom:40px;
+        border-radius:18px;
+    }
+
+    .hero-card img{
+        width:100%;
+        height:auto;
+    }
+
+    .footer-contacts{
+        font-size:18px;
+        margin-bottom:28px;
+    }
+
+    .footer-info{
+        font-size:13px;
+        margin-bottom:50px;
+    }
+
+    
+    }
+    .footer-bg-text{
+        font-size:165px;
+    }
   }
 }
+}
+
 
 /* МОБИЛКА */
 
@@ -455,7 +502,78 @@ body {
 
 
 
+.container {
+    max-width: 335px;
+    margin: 0 auto;
+    .footer-hero{
+        padding:32px 0 50px;
+    }
+
+    .footer-nav{
+        display:grid;
+        grid-template-columns:1fr 1fr;
+        row-gap:28px;
+        column-gap:24px;
+        margin-bottom:36px;
+    }
+
+    .footer-nav a{
+        font-size:20px;
+        line-height:1.2;
+    }
+
+    .hero-card{
+        border-radius:24px;
+        margin-bottom:40px;
+    }
+
+    .hero-card img{
+        width:100%;
+        height:auto;
+    }
+
+    .footer-contacts{
+        display:grid;
+        grid-template-columns:1fr auto;
+        row-gap:18px;
+        font-size:20px;
+        margin-bottom:34px;
+    }
+
+    .footer-contacts div:nth-child(3){
+        grid-row:1 / span 2;
+        justify-self:end;
+        align-self:start;
+    }
+
+    .footer-info{
+        display:flex;
+        flex-direction:column;
+        align-items:flex-start;
+        gap:12px;
+        font-size:14px;
+        margin-bottom:42px;
+    }
+
+    .footer-bg-text{
+        font-size:33vw;
+        line-height:.78;
+        white-space:nowrap;
+    }
+
+
+
+  }
+
 }
+
+
+
+/* ===================================================
+                    MOBILE
+=================================================== */
+
+
 
 
 
