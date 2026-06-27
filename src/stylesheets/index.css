@@ -532,7 +532,231 @@
     }
 }
 
+/* Мобильная адаптация главной страницы (max-width: 375px) */
+/* Строго по макету из PDF "главная_мобилка.pdf" */
 
+@media (max-width: 375px) {
+    .header {
+        .header-wrapper {
+            padding: 0 16px;
+        }
+    }
 
+    .main-figures {
+        display: none; /* на мобилке фигуры обычно скрывают */
+    }
+
+    .hero-section {
+        margin-top: 80px;
+        height: auto;
+        min-height: 420px;
+        background-position: center;
+        background-size: cover;
+        padding-bottom: 40px;
+
+        .hero-section-title {
+            padding-top: 180px;
+            padding-left: 20px;
+            padding-right: 20px;
+            gap: 24px;
+
+            .h1 {
+                font-size: 32px;
+                line-height: 1.1;
+            }
+
+            .hero-section-title-desc {
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+                text-align: center;
+
+                p {
+                    font-size: 16px;
+                }
+
+                button {
+                    width: 100%;
+                    max-width: 280px;
+                }
+            }
+        }
+    }
+
+    .statistic {
+        padding-top: 30px;
+        flex-direction: column;
+        gap: 28px;
+        align-items: center;
+        text-align: center;
+
+        .statistic-item {
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+
+            .h1 {
+                font-size: 36px;
+            }
+
+            .statistic-text {
+                font-size: 17px;
+                line-height: 1.2;
+            }
+        }
+    }
+
+    .hobby-of-day {
+        margin-top: 70px;
+
+        .hobby-track {
+            gap: 20px;
+        }
+
+        .hobby-of-day-card {
+            width: 100%;
+            height: auto;
+            min-height: 320px;
+            flex-direction: column;
+
+            .hobby-of-day-card-image {
+                height: 220px;
+                margin-top: 0;
+                border-radius: 12px 12px 0 0;
+            }
+
+            .hobby-of-day-card-desc {
+                margin-top: -1px;
+                margin-left: 0;
+                width: 100%;
+                padding: 20px;
+                border-radius: 0 0 12px 12px;
+                height: auto;
+                gap: 14px;
+            }
+        }
+
+        .hobby-of-day-buttons {
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 30px;
+            padding: 0 20px;
+
+            button {
+                width: 100%;
+            }
+        }
+    }
+
+    .popular-articles {
+        margin-top: 80px;
+
+        .popular-articles-wrapper {
+            flex-direction: column;
+            gap: 40px;
+            height: auto;
+
+            .popular-articles-info {
+                width: 100%;
+                text-align: center;
+            }
+
+            .popular-articles-cards {
+                flex-direction: column;
+                gap: 20px;
+
+                .article-card {
+                    width: 100%;
+                    height: auto;
+
+                    .article-card-image {
+                        height: 200px;
+                        img {
+                            height: 200px;
+                            width: 100%;
+                        }
+                    }
+
+                    .article-card-desc {
+                        margin-top: -1px;
+                        padding: 20px;
+                    }
+                }
+            }
+        }
+    }
+
+    .popular-tests {
+        margin-top: 80px;
+
+        .popular-tests-wrapper {
+            .popular-tests-cards {
+                flex-direction: column;
+                gap: 30px;
+
+                .test-card {
+                    transform: none !important;
+                    width: 100%;
+                    margin: 0;
+                }
+            }
+
+            .popular-tests-arrows {
+                display: none;
+            }
+
+            button {
+                margin-top: 30px;
+            }
+        }
+    }
+
+    .subscribe-section {
+        margin-top: 70px;
+        padding-top: 60px;
+        padding-bottom: 80px;
+
+        .subscribe {
+            .h2 {
+                font-size: 24px;
+                line-height: 1.2;
+                text-align: center;
+            }
+
+            .subscribe-wrapper {
+                .subscribe-row {
+                    flex-direction: column;
+                    gap: 16px;
+                    text-align: center;
+
+                    .subscribe-row-wrapper {
+                        flex-direction: column;
+                        gap: 12px;
+
+                        input {
+                            width: 100%;
+                        }
+
+                        button {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .footer-hero {
+        .footer-nav {
+            flex-direction: column;
+            gap: 16px;
+            text-align: center;
+        }
+
+        .hero-card {
+            margin: 40px 0;
+        }
+    }
+}
 /* бургер скрыт на десктопе */
 

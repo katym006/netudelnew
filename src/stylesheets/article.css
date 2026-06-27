@@ -331,5 +331,39 @@
   margin-top: 50px;
 }
 
+@media(max-width:375px) {
+      .subscribe-section {
+        .subscribe {
+            .h2 {
+                font-size: 24px;
+                line-height: 1.2;
+            }
+
+            .subscribe-row {
+                flex-direction: column;
+                gap: 12px;
+                align-items: stretch;
+
+                .subscribe-row-label {
+                    text-align: center;
+                }
+
+                .subscribe-row-wrapper {
+                    flex-direction: column;
+                    gap: 12px;
+
+                    input {
+                        width: 100%;
+                    }
+
+                    button {
+                        width: 100%;
+                    }
+                }
+            }
+        }
+    }
+}
+
 
 
