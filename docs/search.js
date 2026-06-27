@@ -31,7 +31,8 @@ function getPostTeasers() {
           cost: record.fields['cost'],
           complexity: record.fields['complexity'],
           image: record.fields['image'],
-          desc: record.fields['desc']
+          desc: record.fields['desc'],
+          link: record.fields['link'] // ссылка на страницу хобби
         });
       });
       resolve(content);
@@ -4019,12 +4020,11 @@ var hobby_filters = __webpack_require__(625);
 var content;
 var applyFilters = function applyFilters() {};
 document.addEventListener('DOMContentLoaded', function () {
-  applyFilters = (0,hobby_filters/* initHobbyFilters */.q)(); // фильтры на странице поиска
-
+  if (!document.querySelector('.S_Content')) return;
+  applyFilters = (0,hobby_filters/* initHobbyFilters */.q)();
   (0,search_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
     console.log(content);
-    //createCards(content);
     initSearch();
   });
 });
@@ -4032,8 +4032,7 @@ function initSearch() {
   var A_SearchInput = document.querySelector('.A_SearchInput');
   var A_SearchButton = document.querySelector('.A_SearchButton');
   var A_SearchDelete = document.querySelector('.A_SearchDelete');
-
-  //Получаем запрос из браузерной строки
+  if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
   var requestText = getSearchRequest();
   if (requestText != undefined) {
     A_SearchInput.value = requestText;
@@ -4048,8 +4047,6 @@ function initSearch() {
   } else {
     createCards(content);
   }
-
-  //Проверка на ввод текст в Инпуте
   A_SearchInput.addEventListener('input', function () {
     requestText = A_SearchInput.value;
     if (requestText.length >= 2) {
@@ -4060,8 +4057,6 @@ function initSearch() {
       A_SearchDelete.classList.add('disabled');
     }
   });
-
-  //Проверка на нажатие Enter
   A_SearchInput.addEventListener('keydown', function (event) {
     if (event.key == 'Enter') {
       requestText = A_SearchInput.value;
@@ -4069,8 +4064,6 @@ function initSearch() {
       searchContent(requestText);
     }
   });
-
-  //Проверка на клик по кнопке Поиск
   A_SearchButton.addEventListener('click', function (event) {
     if (!event.target.classList.contains('disabled')) {
       requestText = A_SearchInput.value;
@@ -4083,7 +4076,9 @@ function initSearch() {
   });
 }
 function searchContent(requestText) {
-  document.querySelector('.S_Content').innerHTML = '';
+  var container = document.querySelector('.S_Content');
+  if (!container) return;
+  container.innerHTML = '';
   var contentItems = [];
   if (requestText.length >= 2) {
     content.forEach(function (contentItem) {
@@ -4095,7 +4090,8 @@ function searchContent(requestText) {
         cost = contentItem.cost,
         complexity = contentItem.complexity,
         image = contentItem.image,
-        desc = contentItem.desc;
+        desc = contentItem.desc,
+        link = contentItem.link;
       title = title.toLowerCase();
       title = title.replaceAll(nbspRegEx, ' ');
       title = title.replaceAll(punctuationRegEx, '');
@@ -4104,10 +4100,8 @@ function searchContent(requestText) {
         contentItems.push(contentItem);
       }
     });
-
-    //Публикуем релевантные посты
     if (contentItems.length == 0) {
-      document.querySelector('.S_Content').innerText = 'Ничего не найдено!';
+      container.innerText = 'Ничего не найдено!';
     } else {
       createCards(contentItems);
     }
@@ -4131,6 +4125,8 @@ function getSearchRequest() {
   }
 }
 function createCards(content) {
+  var container = document.querySelector('.S_Content');
+  if (!container) return;
   content.forEach(function (contentItem) {
     var id = contentItem.id,
       title = contentItem.title,
@@ -4138,7 +4134,8 @@ function createCards(content) {
       cost = contentItem.cost,
       complexity = contentItem.complexity,
       image = contentItem.image,
-      desc = contentItem.desc;
+      desc = contentItem.desc,
+      link = contentItem.link;
     var cardItem = document.createElement('div');
     cardItem.classList.add('hobby-card');
     (0,hobby_filters/* setCardFilterData */.l)(cardItem, {
@@ -4175,14 +4172,18 @@ function createCards(content) {
     var cardItemDescP = document.createElement('p');
     cardItemDescP.classList.add('p2');
     cardItemDescP.innerText = desc;
-    var cardItemDescButton = document.createElement('button');
+
+    // кнопка с настоящей ссылкой из Airtable
+    var cardItemDescButton = document.createElement('div');
     cardItemDescButton.classList.add('card-btn');
     cardItemDescButton.classList.add('green');
-    cardItemDescButton.setAttribute('href', '#');
-    cardItemDescButton.innerText = 'смотреть';
+    var cardItemDescButtonLink = document.createElement('a');
+    cardItemDescButtonLink.href = link || '#';
+    cardItemDescButtonLink.innerText = 'смотреть';
+    cardItemDescButtonLink.target = '_blank';
+    cardItemDescButtonLink.rel = 'noopener noreferrer';
     var cardItemDescButtonImg = document.createElement('img');
     cardItemDescButtonImg.src = hobby_card_arrow_namespaceObject;
-    cardItem.appendChild(cardItemImage);
     cardItem.appendChild(cardItemImage);
     cardItem.appendChild(cardItemDesc);
     cardItemImage.appendChild(img);
@@ -4194,8 +4195,9 @@ function createCards(content) {
     cardItemDescTags.appendChild(cardItemDescTagCost);
     cardItemDescTags.appendChild(cardItemDescTagComplexity);
     cardItemDesc.appendChild(cardItemDescButton);
+    cardItemDescButton.appendChild(cardItemDescButtonLink);
     cardItemDescButton.appendChild(cardItemDescButtonImg);
-    document.querySelector('.S_Content').appendChild(cardItem);
+    container.appendChild(cardItem);
   });
   applyFilters();
 }

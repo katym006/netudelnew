@@ -20,7 +20,7 @@ const htmlPages = [
   createPages('./src/pages/articles.html', './articles.html', ['index', 'search_articles', 'search_articles_data', 'articles']),
   createPages('./src/pages/articles-search.html', './articles-search.html', ['index', 'search_articles', 'search_articles_data']),
   createPages('./src/pages/hobbies/hobby-detail.html', './hobby-detail.html', ['index', 'accordion', 'checklist']),
-  
+  createPages('./src/pages/hobbies/cianotipy.html', './cianotipy.html', ['index', 'accordion', 'checklist']),
 
 ]
 

@@ -245,36 +245,7 @@
   gap: 20px;
 }
 
-.article-card {
-  border: 1px solid var(--blue);
-  border-radius: 16px;
-  overflow: hidden;
-  background: var(--bg-color);
-}
 
-.article-card-image {
-  height: 200px;
-}
-
-.article-card-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.article-card-desc {
-  padding: 20px;
-  margin-top: -30px;
-  background: var(--bg-color);
-  border-radius: 16px;
-  position: relative;
-}
-
-.article-card-tags {
-  display: flex;
-  gap: 10px;
-  opacity: 0.6;
-}
 
 
 

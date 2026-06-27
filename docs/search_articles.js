@@ -28,7 +28,8 @@ function getPostTeasers() {
           id: record.id,
           title: record.fields['Name'],
           tags: record.fields['tags'],
-          image: record.fields['image']
+          image: record.fields['image'],
+          link: record.fields['link']
         });
       });
       resolve(content);
@@ -3907,7 +3908,7 @@ const article_card_arrow_namespaceObject = __webpack_require__.p + "images/artic
 
 var content;
 document.addEventListener('DOMContentLoaded', function () {
-  // если на странице нет контейнера для статей — скрипту тут нечего делать
+  // если на странице нет контейнера для карточек — скрипту тут нечего делать
   if (!document.querySelector('.S_ArticlesContent')) return;
   (0,search_articles_data/* getPostTeasers */.Q)().then(function (data) {
     content = data;
@@ -3919,9 +3920,9 @@ function initSearch() {
   var A_SearchInput = document.querySelector('.A_SearchInput');
   var A_SearchButton = document.querySelector('.A_SearchButton');
   var A_SearchDelete = document.querySelector('.A_SearchDelete');
-  if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
 
-  //Получаем запрос из браузерной строки
+  // на articles.html нет полей поиска с этими классами — выходим, чтобы не падать
+  if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
   var requestText = getSearchRequest();
   if (requestText != undefined) {
     A_SearchInput.value = requestText;
@@ -3936,12 +3937,9 @@ function initSearch() {
   } else {
     createCards(content);
   }
-
-  //Проверка на ввод текст в Инпуте
   A_SearchInput.addEventListener('input', function () {
     requestText = A_SearchInput.value;
     if (requestText.length >= 2) {
-      ёё;
       A_SearchButton.classList.remove('disabled');
       A_SearchDelete.classList.remove('disabled');
     } else {
@@ -3949,8 +3947,6 @@ function initSearch() {
       A_SearchDelete.classList.add('disabled');
     }
   });
-
-  //Проверка на нажатие Enter
   A_SearchInput.addEventListener('keydown', function (event) {
     if (event.key == 'Enter') {
       requestText = A_SearchInput.value;
@@ -3958,8 +3954,6 @@ function initSearch() {
       searchContent(requestText);
     }
   });
-
-  //Проверка на клик по кнопке Поиск
   A_SearchButton.addEventListener('click', function (event) {
     if (!event.target.classList.contains('disabled')) {
       requestText = A_SearchInput.value;
@@ -3983,27 +3977,20 @@ function searchContent(requestText) {
       var id = contentItem.id,
         title = contentItem.title,
         tags = contentItem.tags,
-        image = contentItem.image;
+        image = contentItem.image,
+        link = contentItem.link;
       title = title.toLowerCase();
       title = title.replaceAll(nbspRegEx, ' ');
       title = title.replaceAll(punctuationRegEx, '');
-
-      // description = description.toLowerCase();
-      // description = description.replaceAll(nbspRegEx, ' ');
-      // description = description.replaceAll(punctuationRegEx, '');
-
       requestText = requestText.toLowerCase();
       if (title.includes(requestText)) {
         contentItems.push(contentItem);
       }
     });
-
-    //Публикуем релевантные посты
     if (contentItems.length == 0) {
-      document.querySelector('.S_ArticlesContent').innerText = 'Ничего не найдено!';
+      container.innerText = 'Ничего не найдено!';
     } else {
       createCards(contentItems);
-      //setCardsByIds(contentItemsId);
     }
   } else {
     deleteSearchRequest();
@@ -4026,20 +4013,19 @@ function getSearchRequest() {
 }
 function createCards(content) {
   var container = document.querySelector('.S_ArticlesContent');
-  if (!container) return; // защита от падения на страницах без контейнера
-
+  if (!container) return;
   content.forEach(function (contentItem) {
     var id = contentItem.id,
       title = contentItem.title,
       tags = contentItem.tags,
-      image = contentItem.image;
+      image = contentItem.image,
+      link = contentItem.link;
     var cardArticleItem = document.createElement('div');
     cardArticleItem.classList.add('article-card');
     var cardArticleItemBg = document.createElement('div');
     cardArticleItemBg.classList.add('blur-bg');
     var bg = document.createElement('img');
     bg.src = '../images/blue_bg.svg';
-    cardArticleItemBg.appendChild(bg);
     var cardArticleItemImage = document.createElement('div');
     cardArticleItemImage.classList.add('article-card-image');
     var cardArticleItemImageImage = document.createElement('img');
@@ -4053,10 +4039,14 @@ function createCards(content) {
     cardArticleItemDescTags.classList.add('article-card-tags');
     cardArticleItemDescTags.classList.add('p2');
     cardArticleItemDescTags.innerText = tags;
-    var cardArticleItemDescButton = document.createElement('button');
+    var cardArticleItemDescButton = document.createElement('div');
     cardArticleItemDescButton.classList.add('card-btn');
     cardArticleItemDescButton.classList.add('blue');
-    cardArticleItemDescButton.innerText = 'смотреть';
+    var cardArticleItemDescButtonLink = document.createElement('a');
+    cardArticleItemDescButtonLink.href = link || '#';
+    cardArticleItemDescButtonLink.innerText = 'смотреть';
+    cardArticleItemDescButtonLink.target = '_blank';
+    cardArticleItemDescButtonLink.rel = 'noopener noreferrer';
     var cardArticleItemDescButtonImg = document.createElement('img');
     cardArticleItemDescButtonImg.src = article_card_arrow_namespaceObject;
     cardArticleItem.appendChild(cardArticleItemImage);
@@ -4066,8 +4056,9 @@ function createCards(content) {
     cardArticleItemDesc.appendChild(cardArticleItemDescH);
     cardArticleItemDesc.appendChild(cardArticleItemDescTags);
     cardArticleItemDesc.appendChild(cardArticleItemDescButton);
+    cardArticleItemDescButton.appendChild(cardArticleItemDescButtonLink);
     cardArticleItemDescButton.appendChild(cardArticleItemDescButtonImg);
-    document.querySelector('.S_ArticlesContent').appendChild(cardArticleItem);
+    container.appendChild(cardArticleItem);
   });
 }
 })();

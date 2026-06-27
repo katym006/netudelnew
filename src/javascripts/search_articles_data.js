@@ -20,6 +20,7 @@ function getPostTeasers() {
                         title: record.fields['Name'],
                         tags: record.fields['tags'],
                         image: record.fields['image'],
+                        link: record.fields['link'],
                     })
                 });
                 resolve(content);

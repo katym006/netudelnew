@@ -4,7 +4,7 @@ import articleArrowSvg from '../images/article-card-arrow.svg'
 let content
 
 document.addEventListener('DOMContentLoaded', () => {
-    // если на странице нет контейнера для статей — скрипту тут нечего делать
+    // если на странице нет контейнера для карточек — скрипту тут нечего делать
     if (!document.querySelector('.S_ArticlesContent')) return;
 
     getPostTeasers().then((data) => {
@@ -19,9 +19,9 @@ function initSearch() {
     const A_SearchButton = document.querySelector('.A_SearchButton');
     const A_SearchDelete = document.querySelector('.A_SearchDelete');
 
+    // на articles.html нет полей поиска с этими классами — выходим, чтобы не падать
     if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
 
-    //Получаем запрос из браузерной строки
     let requestText = getSearchRequest();
 
     if (requestText != undefined) {
@@ -40,10 +40,9 @@ function initSearch() {
         createCards(content);
     }
 
-    //Проверка на ввод текст в Инпуте
     A_SearchInput.addEventListener('input', () => {
         requestText = A_SearchInput.value;
-        if (requestText.length >= 2) {ёё
+        if (requestText.length >= 2) {
             A_SearchButton.classList.remove('disabled');
             A_SearchDelete.classList.remove('disabled');
         }
@@ -53,7 +52,6 @@ function initSearch() {
         }
     })
 
-    //Проверка на нажатие Enter
     A_SearchInput.addEventListener('keydown', (event) => {
         if (event.key == 'Enter') {
             requestText = A_SearchInput.value;
@@ -62,7 +60,6 @@ function initSearch() {
         }
     })
 
-    //Проверка на клик по кнопке Поиск
     A_SearchButton.addEventListener('click', (event) => {
         if (!event.target.classList.contains('disabled')) {
             requestText = A_SearchInput.value;
@@ -86,15 +83,11 @@ function searchContent (requestText) {
         content.forEach((contentItem) => {
             const nbspRegEx = /[\u202F\u00A0]/gm
             const punctuationRegEx = /[.,\/#!$%\^&\*;:{}=_`()]/gm
-            let {id, title, tags, image} = contentItem;
+            let {id, title, tags, image, link} = contentItem;
 
             title = title.toLowerCase();
             title = title.replaceAll(nbspRegEx, ' ');
             title = title.replaceAll(punctuationRegEx, '');
-
-            // description = description.toLowerCase();
-            // description = description.replaceAll(nbspRegEx, ' ');
-            // description = description.replaceAll(punctuationRegEx, '');
 
             requestText = requestText.toLowerCase();
 
@@ -103,13 +96,11 @@ function searchContent (requestText) {
             }
         })
 
-        //Публикуем релевантные посты
         if (contentItems.length == 0) {
-            document.querySelector('.S_ArticlesContent').innerText = 'Ничего не найдено!';
+            container.innerText = 'Ничего не найдено!';
         }
         else {
             createCards(contentItems);
-            //setCardsByIds(contentItemsId);
         }
     }
     else {
@@ -135,15 +126,12 @@ function getSearchRequest () {
     }
 }
 
-
-
-
 function createCards(content) {
     const container = document.querySelector('.S_ArticlesContent');
-    if (!container) return; // защита от падения на страницах без контейнера
+    if (!container) return;
 
     content.forEach((contentItem) => {
-        let {id, title, tags, image} = contentItem;
+        let {id, title, tags, image, link} = contentItem;
 
         const cardArticleItem = document.createElement('div');
         cardArticleItem.classList.add('article-card');
@@ -152,14 +140,11 @@ function createCards(content) {
         cardArticleItemBg.classList.add('blur-bg')
         const bg = document.createElement('img')
         bg.src = '../images/blue_bg.svg'
-        cardArticleItemBg.appendChild(bg);
-
 
         const cardArticleItemImage = document.createElement('div');
         cardArticleItemImage.classList.add('article-card-image');
         const cardArticleItemImageImage = document.createElement('img');
-        cardArticleItemImageImage.src = image[0].url; 
-
+        cardArticleItemImageImage.src = image[0].url;
 
         const cardArticleItemDesc = document.createElement('div');
         cardArticleItemDesc.classList.add('article-card-desc')
@@ -173,11 +158,16 @@ function createCards(content) {
         cardArticleItemDescTags.classList.add('p2')
         cardArticleItemDescTags.innerText = tags
 
-
-         const cardArticleItemDescButton = document.createElement('button')
+        const cardArticleItemDescButton = document.createElement('div')
         cardArticleItemDescButton.classList.add('card-btn')
         cardArticleItemDescButton.classList.add('blue')
-        cardArticleItemDescButton.innerText = 'смотреть'
+
+        const cardArticleItemDescButtonLink = document.createElement('a')
+        cardArticleItemDescButtonLink.href = link || '#'
+        cardArticleItemDescButtonLink.innerText = 'смотреть'
+        cardArticleItemDescButtonLink.target = '_blank'
+        cardArticleItemDescButtonLink.rel = 'noopener noreferrer'
+
         const cardArticleItemDescButtonImg = document.createElement('img')
         cardArticleItemDescButtonImg.src = articleArrowSvg
 
@@ -190,11 +180,10 @@ function createCards(content) {
         cardArticleItemDesc.appendChild(cardArticleItemDescH)
         cardArticleItemDesc.appendChild(cardArticleItemDescTags)
         cardArticleItemDesc.appendChild(cardArticleItemDescButton)
+
+        cardArticleItemDescButton.appendChild(cardArticleItemDescButtonLink)
         cardArticleItemDescButton.appendChild(cardArticleItemDescButtonImg)
 
-
-        
-
-        document.querySelector('.S_ArticlesContent').appendChild(cardArticleItem);
+        container.appendChild(cardArticleItem);
     })
 }

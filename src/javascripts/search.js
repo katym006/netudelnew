@@ -6,12 +6,13 @@ let content;
 let applyFilters = () => {};
 
 document.addEventListener('DOMContentLoaded', () => {
-    applyFilters = initHobbyFilters(); // фильтры на странице поиска
+    if (!document.querySelector('.S_Content')) return;
+
+    applyFilters = initHobbyFilters();
 
     getPostTeasers().then((data) => {
         content = data;
         console.log(content)
-        //createCards(content);
         initSearch();
     });
 })
@@ -21,7 +22,8 @@ function initSearch() {
     const A_SearchButton = document.querySelector('.A_SearchButton');
     const A_SearchDelete = document.querySelector('.A_SearchDelete');
 
-    //Получаем запрос из браузерной строки
+    if (!A_SearchInput || !A_SearchButton || !A_SearchDelete) return;
+
     let requestText = getSearchRequest();
 
     if (requestText != undefined) {
@@ -40,7 +42,6 @@ function initSearch() {
         createCards(content);
     }
 
-    //Проверка на ввод текст в Инпуте
     A_SearchInput.addEventListener('input', () => {
         requestText = A_SearchInput.value;
         if (requestText.length >= 2) {
@@ -53,7 +54,6 @@ function initSearch() {
         }
     })
 
-    //Проверка на нажатие Enter
     A_SearchInput.addEventListener('keydown', (event) => {
         if (event.key == 'Enter') {
             requestText = A_SearchInput.value;
@@ -62,7 +62,6 @@ function initSearch() {
         }
     })
 
-    //Проверка на клик по кнопке Поиск
     A_SearchButton.addEventListener('click', (event) => {
         if (!event.target.classList.contains('disabled')) {
             requestText = A_SearchInput.value;
@@ -77,13 +76,16 @@ function initSearch() {
 }
 
 function searchContent (requestText) {
-    document.querySelector('.S_Content').innerHTML = '';
+    const container = document.querySelector('.S_Content');
+    if (!container) return;
+    container.innerHTML = '';
+
     const contentItems = [];
     if (requestText.length >= 2) {
         content.forEach((contentItem) => {
             const nbspRegEx = /[\u202F\u00A0]/gm
             const punctuationRegEx = /[.,\/#!$%\^&\*;:{}=_`()]/gm
-            let {id, title, time, cost, complexity, image, desc} = contentItem;
+            let {id, title, time, cost, complexity, image, desc, link} = contentItem;
 
             title = title.toLowerCase();
             title = title.replaceAll(nbspRegEx, ' ');
@@ -96,9 +98,8 @@ function searchContent (requestText) {
             }
         })
 
-        //Публикуем релевантные посты
         if (contentItems.length == 0) {
-            document.querySelector('.S_Content').innerText = 'Ничего не найдено!';
+            container.innerText = 'Ничего не найдено!';
         }
         else {
             createCards(contentItems);
@@ -128,8 +129,11 @@ function getSearchRequest () {
 }
 
 function createCards(content) {
+    const container = document.querySelector('.S_Content');
+    if (!container) return;
+
     content.forEach((contentItem) => {
-        let {id, title, time, cost, complexity, image, desc} = contentItem;
+        let {id, title, time, cost, complexity, image, desc, link} = contentItem;
 
         const cardItem = document.createElement('div');
         cardItem.classList.add('hobby-card');
@@ -138,7 +142,7 @@ function createCards(content) {
         const cardItemImage = document.createElement('div');
         cardItemImage.classList.add('hobby-card-image');
         const img = document.createElement('img');
-        img.src = image[0].url  
+        img.src = image[0].url
 
         const cardItemBg = document.createElement('div');
         cardItemBg.classList.add('blur-bg')
@@ -158,7 +162,7 @@ function createCards(content) {
         cardItemDescTagTime.classList.add('p2')
         cardItemDescTagTime.classList.add('hobby-card-tag')
         cardItemDescTagTime.innerText = time
-        
+
         const cardItemDescTagCost = document.createElement('div')
         cardItemDescTagCost.classList.add('p2')
         cardItemDescTagCost.classList.add('hobby-card-tag')
@@ -173,18 +177,23 @@ function createCards(content) {
         cardItemDescP.classList.add('p2')
         cardItemDescP.innerText = desc
 
-        const cardItemDescButton = document.createElement('button')
+        // кнопка с настоящей ссылкой из Airtable
+        const cardItemDescButton = document.createElement('div')
         cardItemDescButton.classList.add('card-btn')
         cardItemDescButton.classList.add('green')
-        cardItemDescButton.setAttribute('href', '#');
-        cardItemDescButton.innerText = 'смотреть'
+
+        const cardItemDescButtonLink = document.createElement('a')
+        cardItemDescButtonLink.href = link || '#'
+        cardItemDescButtonLink.innerText = 'смотреть'
+        cardItemDescButtonLink.target = '_blank'
+        cardItemDescButtonLink.rel = 'noopener noreferrer'
+
         const cardItemDescButtonImg = document.createElement('img')
         cardItemDescButtonImg.src = arrowSvg
 
         cardItem.appendChild(cardItemImage);
-        cardItem.appendChild(cardItemImage);
         cardItem.appendChild(cardItemDesc);
-        
+
         cardItemImage.appendChild(img);
         cardItemImage.appendChild(cardItemBg);
 
@@ -197,9 +206,10 @@ function createCards(content) {
         cardItemDescTags.appendChild(cardItemDescTagComplexity)
 
         cardItemDesc.appendChild(cardItemDescButton)
+        cardItemDescButton.appendChild(cardItemDescButtonLink)
         cardItemDescButton.appendChild(cardItemDescButtonImg)
 
-        document.querySelector('.S_Content').appendChild(cardItem);
+        container.appendChild(cardItem);
     })
 
     applyFilters();

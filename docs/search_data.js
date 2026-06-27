@@ -3860,7 +3860,8 @@ function getPostTeasers() {
           cost: record.fields['cost'],
           complexity: record.fields['complexity'],
           image: record.fields['image'],
-          desc: record.fields['desc']
+          desc: record.fields['desc'],
+          link: record.fields['link'] // ссылка на страницу хобби
         });
       });
       resolve(content);

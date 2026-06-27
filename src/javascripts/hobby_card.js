@@ -3,7 +3,7 @@ import arrowSvg from '../images/hobby-card-arrow.svg';
 import { setCardFilterData } from './hobby_filters.js';
 
 export function createHobbyCard(contentItem) {
-    const {title, time, cost, complexity, image, desc} = contentItem;
+    const {title, time, cost, complexity, image, desc, link} = contentItem;
 
     const cardItem = document.createElement('div');
     cardItem.classList.add('hobby-card');
@@ -44,10 +44,16 @@ export function createHobbyCard(contentItem) {
     cardItemDescP.classList.add('p2');
     cardItemDescP.innerText = desc;
 
-    const cardItemDescButton = document.createElement('button');
+    // кнопка "смотреть/попробовать" с настоящей ссылкой
+    const cardItemDescButton = document.createElement('div');
     cardItemDescButton.classList.add('card-btn', 'green');
-    cardItemDescButton.setAttribute('href', '#');
-    cardItemDescButton.innerText = 'смотреть';
+
+    const cardItemDescButtonLink = document.createElement('a');
+    cardItemDescButtonLink.href = link || '#';
+    cardItemDescButtonLink.innerText = 'смотреть';
+    cardItemDescButtonLink.target = '_blank';
+    cardItemDescButtonLink.rel = 'noopener noreferrer';
+
     const cardItemDescButtonImg = document.createElement('img');
     cardItemDescButtonImg.src = arrowSvg;
 
@@ -66,6 +72,7 @@ export function createHobbyCard(contentItem) {
     cardItemDescTags.appendChild(cardItemDescTagComplexity);
 
     cardItemDesc.appendChild(cardItemDescButton);
+    cardItemDescButton.appendChild(cardItemDescButtonLink);
     cardItemDescButton.appendChild(cardItemDescButtonImg);
 
     return cardItem;

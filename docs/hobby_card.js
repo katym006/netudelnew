@@ -55,7 +55,8 @@ function createHobbyCard(contentItem) {
     cost = contentItem.cost,
     complexity = contentItem.complexity,
     image = contentItem.image,
-    desc = contentItem.desc;
+    desc = contentItem.desc,
+    link = contentItem.link;
   var cardItem = document.createElement('div');
   cardItem.classList.add('hobby-card');
   setCardFilterData(cardItem, {
@@ -89,10 +90,15 @@ function createHobbyCard(contentItem) {
   var cardItemDescP = document.createElement('p');
   cardItemDescP.classList.add('p2');
   cardItemDescP.innerText = desc;
-  var cardItemDescButton = document.createElement('button');
+
+  // кнопка "смотреть/попробовать" с настоящей ссылкой
+  var cardItemDescButton = document.createElement('div');
   cardItemDescButton.classList.add('card-btn', 'green');
-  cardItemDescButton.setAttribute('href', '#');
-  cardItemDescButton.innerText = 'смотреть';
+  var cardItemDescButtonLink = document.createElement('a');
+  cardItemDescButtonLink.href = link || '#';
+  cardItemDescButtonLink.innerText = 'смотреть';
+  cardItemDescButtonLink.target = '_blank';
+  cardItemDescButtonLink.rel = 'noopener noreferrer';
   var cardItemDescButtonImg = document.createElement('img');
   cardItemDescButtonImg.src = arrowSvg;
   cardItem.appendChild(cardItemImage);
@@ -106,6 +112,7 @@ function createHobbyCard(contentItem) {
   cardItemDescTags.appendChild(cardItemDescTagCost);
   cardItemDescTags.appendChild(cardItemDescTagComplexity);
   cardItemDesc.appendChild(cardItemDescButton);
+  cardItemDescButton.appendChild(cardItemDescButtonLink);
   cardItemDescButton.appendChild(cardItemDescButtonImg);
   return cardItem;
 }

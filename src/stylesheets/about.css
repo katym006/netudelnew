@@ -489,7 +489,502 @@ body {
   height: 30px;
 }
 
+/* ============================================================
+   TABLET  – max-width: 1024px
+   ============================================================ */
+@media (max-width: 1024px) and (min-width: 376px) {
 
-/* подписка — общие .subscribe-section / .subscribe-wrapper стили берутся из index.css, здесь ничего не переопределяем */
+  /* hero */
+  .media-hero {
+    margin-top: 80px;
+    height: auto;
+    min-height: 520px;
+    padding-bottom: 60px;
+  }
 
+  .media-hero__text {
+    width: 100%;
+    max-width: 420px;
+    font-size: 18px;
+  }
+
+  /* вводный блок */
+  .title-section {
+    padding: 60px 20px 80px;
+  }
+
+  .hero-title-about {
+    font-size: 36px;
+  }
+
+  .hero-sub {
+    font-size: 22px;
+    max-width: 100%;
+  }
+
+  /* карточки-баннеры — на планшете остаются горизонтальными */
+  .card_container {
+    padding: 30px 20px;
+  }
+
+  .card {
+    height: auto;
+    min-height: 280px;
+    flex-direction: row;
+    align-items: stretch;
+  }
+
+  /* reverse — картинка слева, текст справа */
+  .card.reverse {
+    flex-direction: row-reverse;
+  }
+
+  .card img {
+    width: 45%;
+    height: auto;
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    flex: 1;
+    max-width: 55%;
+    padding: 28px 24px;
+    box-sizing: border-box;
+  }
+
+  .card-content h2 {
+    font-size: 28px;
+    line-height: 1;
+    margin-bottom: 14px;
+  }
+
+  .card-content p {
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 20px;
+  }
+
+  .btn {
+    font-size: 16px;
+    height: 38px;
+    width: auto;
+    padding: 0 18px;
+  }
+
+
+  /* иконки-фичи */
+  .system-section {
+    padding: 60px 20px;
+  }
+
+  .section-title {
+    font-size: 36px;
+    margin-bottom: 60px;
+  }
+
+  .feature-grid {
+    gap: 16px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+
+  .feature {
+    width: calc(33.333% - 12px);
+    min-width: 0;
+  }
+
+  .feature-icon {
+    width: 110px;
+    height: 110px;
+  }
+
+  .feature-desc {
+    font-size: 22px;
+  }
+
+  /* тайлы */
+  .page-title {
+    font-size: 36px;
+  }
+
+  .tiles {
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+
+  .tile {
+    width: calc(50% - 8px);
+    height: auto;
+    flex-shrink: 1;
+  }
+
+  .tile__media {
+    height: 160px;
+  }
+
+  .tile__title {
+    font-size: 22px;
+  }
+
+  /* соцсети */
+  .join-title {
+    font-size: 36px;
+  }
+
+  .join-grid {
+    grid-template-columns: 1fr 380px;
+  }
+
+  .join-photos {
+    top: 60px;
+  }
+
+  .join-photo--1,
+  .join-photo--3 {
+    width: 170px;
+    height: 170px;
+  }
+
+  .join-photo--2 {
+    width: 190px;
+    height: 190px;
+  }
+
+  .join-photo--3 {
+    left: 260px;
+  }
+
+  /* команда */
+  .team {
+    margin-top: 60px;
+  }
+
+  .team-grid {
+    gap: 40px;
+  }
+
+  .team-name {
+    font-size: 22px;
+  }
+
+  .team-role {
+    font-size: 18px;
+  }
+}
+
+
+
+/* ============================================================
+   PHONE  – max-width: 375px
+   ============================================================ */
+@media (max-width: 375px) {
+
+  /* hero */
+  .media-hero {
+    margin-top: 60px;
+    min-height: auto;
+    padding-top: 30px;
+    padding-bottom: 40px;
+    /* фон уходит вниз, чтобы не перекрывать текст сверху */
+    background-position: center bottom;
+    background-size: 100% auto;
+  }
+
+  /* заголовок «о медиа» — поверх фонового изображения */
+  .media-hero__title {
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .media-hero__title .h1,
+  .media-hero__title h1 {
+    font-size: 36px;
+    color: var(--blue);
+  }
+
+  .media-hero__content {
+    gap: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .media-hero__text {
+    width: 100%;
+    font-size: 16px;
+  }
+
+  .media-hero__btn {
+    font-size: 16px;
+    height: 36px;
+  }
+
+  .media-hero__btn a {
+    font-size: 16px;
+  }
+
+  /* вводный блок */
+  .title-section {
+    padding: 40px 16px 50px;
+  }
+
+  /* Все заголовки h1/h2 размером 48px → 20px на телефоне */
+  .hero-title-about {
+    font-size: 20px;
+    letter-spacing: 0;
+    margin-bottom: 16px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+  }
+
+  /* карточки-баннеры */
+  .card_container {
+    padding: 20px 16px;
+  }
+
+  .card {
+    height: auto;
+    flex-direction: column;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card.reverse {
+    flex-direction: column;
+  }
+  /* картинка всегда после текста */
+  .card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    order: 2;
+    flex-shrink: 0;
+  }
+
+  .card-content {
+    width: 100%;
+    max-width: 100%;
+    padding: 20px 16px 16px;
+    order: 1;
+    box-sizing: border-box;
+  }
+
+  .card-content h2 {
+    font-size: 20px;
+    line-height: 1.1;
+    margin-bottom: 10px;
+  }
+
+  .card-content p {
+    font-size: 15px;
+    line-height: 1.4;
+    margin-bottom: 16px;
+  }
+
+  .btn {
+    font-size: 15px;
+    height: 36px;
+    width: auto;
+    padding: 0 20px;
+  }
+
+
+  /* иконки-фичи */
+  .system-section {
+    padding: 40px 16px;
+  }
+
+  .section-title {
+    font-size: 20px;
+    margin-bottom: 40px;
+  }
+
+  .feature-grid {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+  }
+
+  .feature {
+    width: 100%;
+    gap: 24px;
+  }
+
+  .feature-icon {
+    width: 100px;
+    height: 100px;
+  }
+
+  .feature-desc {
+    font-size: 16px;
+  }
+
+  /* тайлы */
+  .page-title {
+    font-size: 20px;
+    margin-bottom: 24px;
+  }
+
+  .tiles {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .tile {
+    width: 100%;
+    height: auto;
+  }
+
+  .tile__media {
+    height: 180px;
+  }
+
+  .tile__title {
+    font-size: 18px;
+  }
+
+  .tile__link {
+    font-size: 14px;
+  }
+
+  /* соцсети — сетка в колонку: текст сверху, фото снизу */
+  .join-container {
+    margin-top: 50px;
+  }
+
+  .join-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .join-title {
+    font-size: 20px;
+    margin-bottom: 16px;
+  }
+
+  .join-desc {
+    font-size: 16px;
+    max-width: 100%;
+  }
+
+  .socials {
+    gap: 20px;
+    flex-direction: column;
+  }
+
+  .social {
+    font-size: 16px;
+  }
+
+  .social__icon {
+    width: 40px;
+    height: 40px;
+  }
+
+  /* Блок с фото — показываем, перестраиваем в горизонтальный ряд */
+  .join-right {
+    display: flex;
+    justify-content: center;
+    height: 200px;
+  }
+
+  .join-photos {
+    position: relative;
+    top: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  /* Три фото лежат в ряд с небольшим перекрытием, как в макете */
+  .join-photo--1 {
+    width: 120px;
+    height: 120px;
+    left: 0;
+    top: 30px;
+    transform: rotate(-8deg);
+  }
+
+  .join-photo--2 {
+    width: 140px;
+    height: 140px;
+    left: 80px;
+    top: 10px;
+    z-index: 3;
+    transform: rotate(0deg);
+  }
+
+  .join-photo--3 {
+    width: 120px;
+    height: 120px;
+    left: 195px;
+    top: 30px;
+    transform: rotate(8deg);
+  }
+
+  /* команда */
+  .team {
+    margin-top: 50px;
+  }
+
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .team-photo {
+    height: 220px;
+  }
+
+  .team-name {
+    font-size: 20px;
+  }
+
+  .team-role {
+    font-size: 16px;
+  }
+
+  .team-tg {
+    font-size: 16px;
+  }
+}
+
+/* ============================================================
+   PHONE дополнение — заголовки подписки и hero (видимость)
+   ============================================================ */
+@media (max-width: 375px) {
+
+  /* подписка — заголовок может сливаться с фоном */
+  .subscribe-section .h2,
+  .subscribe-section h2 {
+    font-size: 20px;
+    color: var(--blue);
+    line-height: 1.2;
+  }
+
+  /* subscribe input и кнопка — на всю ширину */
+  .subscribe-row {
+    flex-direction: column;
+    gap: 12px;
+  }
+
+  .subscribe-row-wrapper {
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+  }
+
+  .subscribe-input {
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .subscribe-section .primary {
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
 
